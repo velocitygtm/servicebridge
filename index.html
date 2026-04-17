@@ -134,6 +134,7 @@ header{background:#1A2B3C;color:#fff;padding:13px 20px;font-size:15px;font-weigh
         <button class="btn" id="b-CP" onclick="filt('CP')">Competitors</button>
         <button class="btn" id="b-EV" onclick="filt('EV')">Events</button>
         <button class="btn" id="b-A250" onclick="filt('A250')">&#127482;&#127480; America 250</button>
+        <button class="btn" id="b-DOC" onclick="filt('DOC')">&#128193; Control Book</button>
       </div>
     </div>
     <div class="list" id="lst"></div>
@@ -182,6 +183,63 @@ function getFB(name){
     return a==n||n.indexOf(a)>=0||a.indexOf(n)>=0;
   })[0]||null;
 }
+
+
+// ===== CONTROL BOOK DATA + VIEWER =====
+var DOCS=[
+  {icon:"\ud83d\udcca",title:"The ServiceBridge Advantage",file:"SB_Advantage_Strategy.pdf",size:"1.3 MB",type:"PDF",version:"16 pages \u00b7 cleaned Apr 7",purpose:"Strategic narrative for 5 audiences (Technician, Franchisee, Customer, Franchisor, PE/Exit). Includes flywheel diagram, Insight Engine ROI model reference showing BELFOR scenario, 9 PE target groups table, exit math with Conservative/Base/Upside columns, and system-we-are-building close.",audience:"External \u00b7 all five audiences",status:"CURRENT"},
+  {icon:"\ud83d\udcc8",title:"Insight Engine Excel v5",file:"Insight_Engine_Excel_v5.xlsx",size:"72 KB",type:"XLSX",version:"v5 LATEST \u00b7 Apr 17",purpose:"15 tabs: ROI Calculator + 9 franchisor-specific tabs (BELFOR, Threshold, Empower, PSB, ResiBrands, Five Star, HomeFront, Authority, Neighborly) with PE-credible EBITDA model, Conservative/Base/Stretch scenarios, and Universal + Account-Specific validation checklists with Mike/Garrett/Charles sign-off rows. Plus Fuel Intelligence, Sources & Methodology, Competitive Matrix, Trade Reference, and 3-Way Scenario tabs.",audience:"Internal (Mike, Garrett, Charles) before external use",status:"CURRENT \u00b7 validate with Garrett before external"},
+  {icon:"\ud83d\udcdd",title:"Weekly Action Plan v2",file:"Weekly_Action_Plan_v2.pdf",size:"26 KB",type:"PDF",version:"v2 \u00b7 Apr 17",purpose:"13-week execution plan aligned to SOW: Phase 1 Develop (Weeks 1-4), Phase 2 Engage (Weeks 5-8), Phase 3 Close (Weeks 9-13). Week 4 includes PE narrative letters to KKR/Riverside/American Securities plus America 250 coin and campaign launch.",audience:"Internal (Mike, Andrea, Charles, Garrett)",status:"CURRENT"},
+  {icon:"\ud83c\udf10",title:"Master CRM v15.5",file:"ServiceBridge_Master_CRM_15_5.xlsx",size:"543 KB",type:"XLSX",version:"v15.5 LATEST",purpose:"87 accounts (9 franchisors + 78 franchisees), 10 PE firms, 23 engagements, 26 feedback rows, 13 competitors, 17 events, full America 250 campaign with embedded v18 challenge coin image. Source of truth for this GitHub viewer.",audience:"Internal (Mike, Andrea, Charles, Garrett)",status:"CURRENT"},
+  {icon:"\ud83d\udd0d",title:"Insight Engine Definition Matrix",file:"Insight_Engine_Definition_Matrix.pdf",size:"See file",type:"PDF",version:"9 pages",purpose:"Companion reference for the Insight Engine Excel. Defines every input, assumption, and output in the ROI model with source citations and confidence ratings (Very High / High / Med-High / Medium / Exact). Includes 13-trade benchmark table, 20-source master bibliography, and competitive comparison. Backs up every claim made in The ServiceBridge Advantage.",audience:"Insight Engine users \u00b7 due diligence \u00b7 PE operating partners",status:"CURRENT \u00b7 pairs with Insight Engine Excel"}
+];
+var selDoc=-1;
+function pickDOC(idx){
+  selDoc=idx;
+  // Re-render left cards with selection
+  var l=document.getElementById('lst');
+  var h='<div style="padding:8px 10px 10px;color:#555;font-size:11px;line-height:1.5;">Control Book v1.0 &mdash; all current deliverables. Download buttons link to files hosted in the /docs folder of this repo.</div>';
+  for(var i=0;i<DOCS.length;i++){
+    var d=DOCS[i];
+    var on=(i==selDoc)?' on':'';
+    h+='<div class="card'+on+'" onclick="pickDOC('+i+')"><div class="cn">'+d.icon+' '+e(d.title)+'</div><div class="cs">'+e(d.type)+' &middot; '+e(d.size)+' &middot; '+e(d.version)+'</div></div>';
+  }
+  l.innerHTML=h;
+  // Render right panel
+  var d=DOCS[idx];
+  var statusClass='as'; var statusIcon='\u2713';
+  if(d.status.indexOf('Signing')>-1||d.status.indexOf('validate')>-1){statusClass='aw';statusIcon='\u26a0';}
+  if(d.status.indexOf('Mike\u0027s Mac')>-1){statusClass='ai';statusIcon='\u2139';}
+  var r='<div class="profile">';
+  r+='<div class="phead"><div><div class="ptitle">'+d.icon+' '+e(d.title)+'</div>';
+  r+='<div class="pmeta">'+e(d.type)+' &middot; '+e(d.size)+' &middot; '+e(d.version)+'</div>';
+  r+='<div class="pbadges"><span class="chip cb">Control Book</span></div></div>';
+  r+='<div class="pscore"><a href="./docs/'+e(d.file)+'" download style="display:inline-block;padding:10px 18px;background:#185FA5;color:#fff;text-decoration:none;border-radius:7px;font-weight:600;font-size:13px">&#11015; Download</a></div></div>';
+  r+='<div class="pane on" style="display:block">';
+  r+='<div class="section">Purpose</div>';
+  r+='<div class="box"><div class="val">'+e(d.purpose)+'</div></div>';
+  r+='<div class="section">Audience</div>';
+  r+='<div class="box"><div class="val">'+e(d.audience)+'</div></div>';
+  r+='<div class="section">Status</div>';
+  r+='<div class="alert '+statusClass+'">'+statusIcon+' '+e(d.status)+'</div>';
+  r+='<div class="section">File reference</div>';
+  r+='<div class="box"><div class="lbl">Filename</div><div class="val" style="font-family:monospace;font-size:12px">'+e(d.file)+'</div></div>';
+  r+='</div></div>';
+  document.getElementById('right').innerHTML=r;
+}
+function showDOC(){
+  selDoc=-1;
+  var l=document.getElementById('lst');
+  var h='<div style="padding:8px 10px 10px;color:#555;font-size:11px;line-height:1.5;">Control Book v1.0 &mdash; all current deliverables. Click any item to see details and download.</div>';
+  for(var i=0;i<DOCS.length;i++){
+    var d=DOCS[i];
+    h+='<div class="card" onclick="pickDOC('+i+')"><div class="cn">'+d.icon+' '+e(d.title)+'</div><div class="cs">'+e(d.type)+' &middot; '+e(d.size)+' &middot; '+e(d.version)+'</div></div>';
+  }
+  l.innerHTML=h;
+  document.getElementById('right').innerHTML='<div class="empty"><h2>&#128193; Control Book</h2><p style="max-width:500px;margin:0 auto;line-height:1.6">All current GTM deliverables for the GPS Insight / ServiceBridge engagement. Click any document on the left to view details and download.</p><p style="margin-top:20px;font-size:12px;color:#888">5 documents &middot; Updated Apr 17, 2026</p></div>';
+}
+function e(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+// ===== END CONTROL BOOK =====
 
 function filt(f){
   cf=f;
@@ -233,6 +291,7 @@ function render(){
     return;
   }
 
+  if(cf=='DOC'){showDOC();return;}
   if(cf=='A250'){
     var sections=[
       {key:'overview',title:'Campaign Overview',icon:'&#127482;&#127480;'},
