@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Empower Brands · Track 2 Readiness · v1.0 · ServiceBridge GTM</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1A2B3C;
+    --navy-deep: #0F1A24;
+    --blue: #185FA5;
+    --blue-light: #3B7FC4;
+    --red: #A32D2D;
+    --orange: #C25E1A;
+    --gold: #B8860B;
+    --green: #2D6A4F;
+    --grey: #6B7280;
+    --grey-light: #E5E7EB;
+    --grey-bg: #F7F8FA;
+    --paper: #FAFAF7;
+    --ink: #1F2937;
+    --serif: 'Source Serif Pro', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+    font-size: 14px;
+  }
+
+  /* === HEADER === */
+  .masthead {
+    background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, #2A3F54 100%);
+    color: white;
+    padding: 32px 40px 28px;
+    border-bottom: 4px solid var(--blue);
+  }
+  .masthead-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 8px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .masthead-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+  }
+  .masthead-meta {
+    margin-top: 18px;
+    display: flex;
+    gap: 24px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 14px;
+    flex-wrap: wrap;
+  }
+  .masthead-meta strong { color: white; font-weight: 600; }
+
+  /* === NAV TABS === */
+  .nav-tabs {
+    background: white;
+    border-bottom: 1px solid var(--grey-light);
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .nav-tab {
+    display: inline-block;
+    padding: 14px 16px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--grey);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .nav-tab:hover { color: var(--navy); background: var(--grey-bg); }
+  .nav-tab.active {
+    color: var(--navy);
+    border-bottom-color: var(--blue);
+    font-weight: 600;
+  }
+  .nav-tab.tier-pilot { font-weight: 600; }
+  .nav-tab.tier-pilot.active { border-bottom-color: var(--green); }
+
+  /* === SECTION === */
+  .section { display: none; padding: 32px 40px 60px; max-width: 1280px; margin: 0 auto; }
+  .section.active { display: block; }
+
+  /* === MY READ BANNER === */
+  .my-read {
+    background: linear-gradient(135deg, #FFF8E1 0%, #FEF3C7 100%);
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    border-radius: 4px;
+  }
+  .my-read-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .my-read-headline {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .my-read-body {
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .my-read-body p + p { margin-top: 10px; }
+
+  /* === MATRIX TABLE === */
+  .matrix-wrap {
+    background: white;
+    border: 1px solid var(--grey-light);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 28px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .matrix-header {
+    background: var(--navy);
+    color: white;
+    padding: 16px 24px;
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .matrix-header-sub {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    margin-top: 4px;
+  }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .matrix-table th {
+    background: var(--grey-bg);
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 10px;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--grey-light);
+    white-space: nowrap;
+  }
+  .matrix-table th.score-col { text-align: center; min-width: 70px; }
+  .matrix-table td {
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--grey-light);
+    vertical-align: middle;
+  }
+  .matrix-table tr:hover td { background: #FAFBFC; }
+  .matrix-table tr.row-pilot td { background: #F0F9F4; }
+  .matrix-table tr.row-pilot:hover td { background: #E5F3EC; }
+  .matrix-table tr.row-caution td { background: #FFF8EB; }
+  .matrix-table tr.row-caution:hover td { background: #FCEDC9; }
+  .matrix-table tr.row-divider td {
+    background: var(--navy);
+    color: white;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 12px;
+  }
+  .brand-cell {
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .brand-cell:hover { color: var(--blue); text-decoration: underline; }
+  .brand-meta {
+    font-weight: 400;
+    font-size: 10.5px;
+    color: var(--grey);
+    margin-top: 2px;
+  }
+  .score-num {
+    display: inline-block;
+    min-width: 32px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--navy);
+  }
+  .eng-num {
+    font-weight: 600;
+    color: var(--green);
+  }
+
+  /* === TIER BADGES === */
+  .tier-badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tier-t3 { background: #E8F4EE; color: var(--green); border: 1px solid #B8DCC4; }
+  .tier-t4 { background: #E6F0FA; color: var(--blue); border: 1px solid #BCD4ED; }
+  .tier-t5 { background: #F0F4FA; color: var(--navy); border: 1px solid #C5D0E0; }
+  .tier-caution { background: #FFF1E0; color: var(--orange); border: 1px solid #F4D2A8; }
+
+  /* === BRAND PAGE === */
+  .brand-back {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--blue);
+    cursor: pointer;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .brand-back:hover { text-decoration: underline; }
+  .brand-header {
+    background: white;
+    border: 1px solid var(--grey-light);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .brand-header.pilot { border-left: 5px solid var(--green); }
+  .brand-header.caution { border-left: 5px solid var(--orange); background: #FFFCF5; }
+  .brand-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 6px;
+  }
+  .brand-title {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+  .brand-subtitle {
+    font-size: 13px;
+    color: var(--grey);
+    margin-bottom: 14px;
+  }
+  .pilot-banner {
+    background: linear-gradient(90deg, #2D6A4F 0%, #40916C 100%);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pilot-banner-tag { background: rgba(255,255,255,0.2); padding: 3px 9px; border-radius: 10px; font-size: 10px; }
+  .caution-banner {
+    background: linear-gradient(90deg, #C25E1A 0%, #E08A45 100%);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .caution-banner-tag { background: rgba(255,255,255,0.2); padding: 3px 9px; border-radius: 10px; font-size: 10px; }
+  .brand-stats {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding-top: 14px;
+    border-top: 1px solid var(--grey-light);
+  }
+  .brand-stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 2px;
+  }
+  .brand-stat-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* === DIMENSION CARDS === */
+  .dim-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .dim-card {
+    background: white;
+    border: 1px solid var(--grey-light);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .dim-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  .dim-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+  .dim-flag {
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.06em;
+  }
+  .dim-flag-strong { background: #E8F4EE; color: var(--green); }
+  .dim-flag-weak { background: #F4D9D9; color: var(--red); }
+  .dim-flag-unknown { background: var(--grey-light); color: var(--grey); }
+  .dim-flag-caution { background: #FFF1E0; color: var(--orange); }
+  .dim-narrative {
+    font-size: 12.5px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  /* === LEVERAGE / CHALLENGES === */
+  .lc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .lc-card {
+    background: white;
+    border: 1px solid var(--grey-light);
+    border-radius: 6px;
+    padding: 18px 22px;
+  }
+  .lc-card.leverage { border-left: 4px solid var(--green); }
+  .lc-card.challenges { border-left: 4px solid var(--red); }
+  .lc-head {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .lc-list { list-style: none; padding: 0; }
+  .lc-list li {
+    font-size: 12.5px;
+    line-height: 1.6;
+    padding: 6px 0 6px 18px;
+    position: relative;
+    color: var(--ink);
+  }
+  .lc-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+  .lc-card.leverage .lc-list li::before { color: var(--green); }
+  .lc-card.challenges .lc-list li::before { color: var(--red); }
+
+  /* === PERSONA MAP === */
+  .persona-section, .events-section, .scoring-section {
+    background: white;
+    border: 1px solid var(--grey-light);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .section-head {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--grey-light);
+  }
+  .persona-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .persona-table th {
+    background: var(--grey-bg);
+    text-align: left;
+    padding: 8px 12px;
+    font-weight: 600;
+    font-size: 10px;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .persona-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--grey-light);
+    vertical-align: top;
+  }
+  .persona-table tr:last-child td { border-bottom: none; }
+  .persona-name { font-weight: 600; color: var(--navy); }
+  .persona-warm { font-size: 11px; color: var(--green); font-weight: 600; }
+  .persona-validate { font-size: 11px; color: var(--orange); font-weight: 500; }
+
+  /* === EVENTS === */
+  .event-row {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--grey-light);
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 16px;
+    font-size: 12.5px;
+  }
+  .event-row:last-child { border-bottom: none; }
+  .event-date { color: var(--grey); font-weight: 500; }
+  .event-name { font-weight: 600; color: var(--navy); }
+  .event-meta { font-size: 11px; color: var(--grey); margin-top: 2px; }
+
+  /* === HOW WE SCORED === */
+  .scoring-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .scoring-table th {
+    background: var(--grey-bg);
+    text-align: left;
+    padding: 8px 12px;
+    font-weight: 600;
+    font-size: 10px;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .scoring-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--grey-light);
+    vertical-align: top;
+  }
+  .scoring-table tr:last-child td { border-bottom: none; }
+
+  /* === SUMMARY CARDS === */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .summary-card {
+    background: white;
+    border: 1px solid var(--grey-light);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .summary-num {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .summary-num.green { color: var(--green); }
+  .summary-num.blue { color: var(--blue); }
+  .summary-num.orange { color: var(--orange); }
+  .summary-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--grey);
+  }
+  .summary-sub {
+    font-size: 11px;
+    color: var(--grey);
+    margin-top: 4px;
+  }
+
+  /* === COHORT CALLOUT === */
+  .cohort-callout {
+    background: #F0F4FA;
+    border: 1px solid #C5D0E0;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+  }
+  .cohort-callout h3 {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .cohort-callout p {
+    font-size: 12.5px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  /* === FOOTER === */
+  .footer {
+    text-align: center;
+    padding: 24px 40px;
+    font-size: 11px;
+    color: var(--grey);
+    border-top: 1px solid var(--grey-light);
+    background: white;
+  }
+
+  @media (max-width: 768px) {
+    .masthead { padding: 20px 24px; }
+    .masthead h1 { font-size: 22px; }
+    .section { padding: 20px 24px; }
+    .summary-grid { grid-template-columns: repeat(2, 1fr); }
+    .dim-grid { grid-template-columns: 1fr; }
+    .lc-grid { grid-template-columns: 1fr; }
+    .matrix-table { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ MASTHEAD ═══════════════ -->
+<header class="masthead">
+  <div class="masthead-eyebrow">Velocity GTM Co · ServiceBridge GTM Engagement · Track 2 P1 #3</div>
+  <h1>Empower Brands · Track 2 Readiness</h1>
+  <div class="masthead-sub">10-brand portfolio · GREENFIELD-LED character · Aligned to Track 2 P1+P2 Brand Priority Matrix v2 · CRM v15.6</div>
+  <div class="masthead-meta">
+    <span><strong>P1 #3</strong> · Score 66.2 · GREENFIELD-LED</span>
+    <span><strong>MidOcean Partners</strong> · Year 3-4 hold</span>
+    <span><strong>Total:</strong> 1,950 locs · 7,750 techs</span>
+    <span><strong>Engageable:</strong> 7,750 (100%) · $233K Y1@10%</span>
+    <span><strong>v1.0</strong> · May 1, 2026</span>
+  </div>
+</header>
+
+<!-- ═══════════════ NAV TABS ═══════════════ -->
+<nav class="nav-tabs" id="navTabs">
+  <span class="nav-tab active" data-target="matrix">📊 Matrix Overview</span>
+  <span class="nav-tab tier-pilot" data-target="brand-frsteam">★ FRSTeam (T3·81)</span>
+  <span class="nav-tab" data-target="brand-bumble">Bumble Roofing (T4·71)</span>
+  <span class="nav-tab" data-target="brand-superior">Superior Fence (T4·71)</span>
+  <span class="nav-tab" data-target="brand-canopy">Canopy Lawn (T5·66)</span>
+  <span class="nav-tab" data-target="brand-janpro">⚠ JAN-PRO (T5·63)</span>
+  <span class="nav-tab" data-target="brand-wallaby">Wallaby Windows (T5·63)</span>
+  <span class="nav-tab" data-target="brand-archadeck">Archadeck (T5·61)</span>
+  <span class="nav-tab" data-target="brand-conserva">Conserva (T5·61)</span>
+  <span class="nav-tab" data-target="brand-koala">Koala Insulation (T5·61)</span>
+  <span class="nav-tab" data-target="brand-olp">OLP (T5·61)</span>
+</nav>
+
+<!-- ═══════════════ MATRIX SECTION ═══════════════ -->
+<section class="section active" id="matrix">
+
+  <!-- My Read -->
+  <div class="my-read">
+    <div class="my-read-label">My Read</div>
+    <div class="my-read-headline">Empower is the largest engageable opportunity in P1 (7,750 techs, 100% engageable) — and it's the cleanest greenfield posture in the entire Track 1 set. No ServiceTitan mandate. No Successware default. The opening is wide open.</div>
+    <div class="my-read-body">
+      <p><strong>The strategic frame:</strong> Empower has the highest greenfield score in P1 (90/100 raw) and zero confirmed competitive FSM mandates anywhere in the portfolio. Per the v2 Track 1 matrix, by engageable techs Empower jumps to the top of the practical engagement pipeline — slightly larger than Neighborly's 7,284. The company was formed in November 2022 from the integration of Lynx Franchising and Outdoor Living Brands, MidOcean Partners has held since 2021, and we're sitting at Year 3-4 of the hold cycle — building toward exit. CEO Scott Zide came up as a franchisee himself (Outdoor Lighting Perspectives in St. Louis with his wife Erin), which means he hears franchisee pain in his own voice. Same operator-first DNA we saw with Katie Dills at TCA, but at the parent level.</p>
+      <p><strong>The R. Scott Sutton signal:</strong> Sutton joined Empower as CDO in August 2025 — coming over from Threshold Brands. Threshold is your P2-3 "AT-RISK ANCHOR" target. Sutton walked across the street from Riverside (Threshold) to MidOcean (Empower). That's a tells-us-something signal: a senior franchise development executive chose Empower's growth trajectory over Threshold's. It also means Empower has a CDO who knows USA Insulation's bodies, the Riverside operating model, and the broader franchise PE landscape — strategic intel embedded in their leadership bench.</p>
+      <p><strong>Two cohorts to read separately within the portfolio:</strong> The <strong>Scott Marr cohort</strong> (Bumble Roofing, Wallaby Windows, Canopy Lawn Care, Koala Insulation) was built on ServiceMinder ($206/mo) — that's an established FSM-lite stack we may need to displace, but ServiceMinder is a fraction of ServiceBridge's depth. The <strong>OLB legacy cohort</strong> (Archadeck, Conserva Irrigation, Outdoor Lighting Perspectives, Superior Fence) is the original Outdoor Living Brands family, ServiceMinder likely as well per testimonial evidence. <strong>FRSTeam</strong> at T3 is a Lead Pilot in restoration vertical — different vertical, different leverage, separate motion. <strong>JAN-PRO</strong> sits in caution territory: 4,000 techs alone is enormous, but it's commercial cleaning B2B with proprietary tracker software, very different fit profile from the rest of the portfolio.</p>
+    </div>
+  </div>
+
+  <!-- Summary cards -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="summary-num green">1</div>
+      <div class="summary-label">T3 Lead Pilot</div>
+      <div class="summary-sub">FRSTeam (score 81 · 500 techs · restoration)</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-num blue">8</div>
+      <div class="summary-label">T4/T5 NorthStars</div>
+      <div class="summary-sub">Score 61-71 · 3,250 techs across two cohorts</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-num orange">1</div>
+      <div class="summary-label">⚠ Caution</div>
+      <div class="summary-sub">JAN-PRO · proprietary tracker · B2B commercial</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-num">7,750</div>
+      <div class="summary-label">Engageable Techs</div>
+      <div class="summary-sub">100% engageable · $233K Y1 ARR @ 10%</div>
+    </div>
+  </div>
+
+  <!-- The matrix -->
+  <div class="matrix-wrap">
+    <div class="matrix-header">
+      Empower Brands · 10-Brand Track 2 Matrix · v1
+      <div class="matrix-header-sub">Aligned to Track 2 P1+P2 Brand Priority Matrix v2 · 100% engageable · No ST mandate anywhere · Click any brand to drill into the readiness page</div>
+    </div>
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th style="min-width:240px">#  Brand</th>
+          <th class="score-col">Score</th>
+          <th class="score-col">Tier</th>
+          <th class="score-col">Locs</th>
+          <th class="score-col">T/L</th>
+          <th class="score-col">Total Techs</th>
+          <th class="score-col">Eng Techs</th>
+          <th>Trade · Why ranked</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-divider"><td colspan="8">★ T3 LEAD PILOT · Restoration vertical · Holly Murry brand pres · 20+ years FRSTeam</td></tr>
+
+        <tr class="row-pilot" onclick="showSection('brand-frsteam')" style="cursor:pointer">
+          <td>29 &nbsp; <span class="brand-cell">FRSTeam</span><div class="brand-meta">Holly Murry (Brand Pres) · Contents/restoration · Scott Zide CEO portfolio</div></td>
+          <td class="score-col"><span class="score-num">81</span></td>
+          <td class="score-col"><span class="tier-badge tier-t3">T3</span></td>
+          <td class="score-col">100</td>
+          <td class="score-col">5</td>
+          <td class="score-col">500</td>
+          <td class="score-col"><span class="eng-num">500</span></td>
+          <td>Contents/Restoration · Restoration vertical · greenfield · Scott Zide CEO portfolio</td>
+        </tr>
+
+        <tr class="row-divider"><td colspan="8">T4 NORTHSTARS · Scott Marr cohort · ServiceMinder $206/mo soft incumbent</td></tr>
+
+        <tr onclick="showSection('brand-bumble')" style="cursor:pointer">
+          <td>30 &nbsp; <span class="brand-cell">Bumble Roofing</span><div class="brand-meta">David Bitan (Founder) · Scott Marr cohort · ServiceMinder wedge</div></td>
+          <td class="score-col"><span class="score-num">71</span></td>
+          <td class="score-col"><span class="tier-badge tier-t4">T4</span></td>
+          <td class="score-col">100</td>
+          <td class="score-col">5</td>
+          <td class="score-col">500</td>
+          <td class="score-col"><span class="eng-num">500</span></td>
+          <td>Roofing · Scott Marr cohort · ServiceMinder $206/mo wedge · David Bitan founder</td>
+        </tr>
+
+        <tr onclick="showSection('brand-superior')" style="cursor:pointer">
+          <td>31 &nbsp; <span class="brand-cell">Superior Fence &amp; Rail</span><div class="brand-meta">Zach Peyton (Co-founder/Pres) · 2021 Empower acquisition · OLB legacy</div></td>
+          <td class="score-col"><span class="score-num">71</span></td>
+          <td class="score-col"><span class="tier-badge tier-t4">T4</span></td>
+          <td class="score-col">100</td>
+          <td class="score-col">5</td>
+          <td class="score-col">500</td>
+          <td class="score-col"><span class="eng-num">500</span></td>
+          <td>Fence · OLB legacy cohort · ServiceMinder likely · 2021 acquisition</td>
+        </tr>
+
+        <tr class="row-divider"><td colspan="8">T5 NORTHSTARS · Scott Marr emerging brands + OLB legacy</td></tr>
+
+        <tr onclick="showSection('brand-canopy')" style="cursor:pointer">
+          <td>32 &nbsp; <span class="brand-cell">Canopy Lawn Care</span><div class="brand-meta">Scott Marr cohort · ServiceMinder confirmed · 42 units · incubated brand</div></td>
+          <td class="score-col"><span class="score-num">66</span></td>
+          <td class="score-col"><span class="tier-badge tier-t5">T5</span></td>
+          <td class="score-col">100</td>
+          <td class="score-col">4</td>
+          <td class="score-col">400</td>
+          <td class="score-col"><span class="eng-num">400</span></td>
+          <td>Lawn Care · Scott Marr cohort · ServiceMinder confirmed · 42 units</td>
+        </tr>
+
+        <tr class="row-caution" onclick="showSection('brand-janpro')" style="cursor:pointer">
+          <td>33 &nbsp; <span class="brand-cell">JAN-PRO</span><div class="brand-meta">⚠ Largest brand · 4,000 techs · proprietary tracker · commercial B2B</div></td>
+          <td class="score-col"><span class="score-num">63</span></td>
+          <td class="score-col"><span class="tier-badge tier-caution">⚠ T5</span></td>
+          <td class="score-col">1,000</td>
+          <td class="score-col">4</td>
+          <td class="score-col">4,000</td>
+          <td class="score-col"><span class="eng-num">4,000</span></td>
+          <td>Commercial Cleaning · Largest brand · 4,000 techs · proprietary tracker (FSM unclear)</td>
+        </tr>
+
+        <tr onclick="showSection('brand-wallaby')" style="cursor:pointer">
+          <td>34 &nbsp; <span class="brand-cell">Wallaby Windows</span><div class="brand-meta">Cory Lyons (Brand Pres · also Koala) · Scott Marr cohort</div></td>
+          <td class="score-col"><span class="score-num">63</span></td>
+          <td class="score-col"><span class="tier-badge tier-t5">T5</span></td>
+          <td class="score-col">100</td>
+          <td class="score-col">3</td>
+          <td class="score-col">300</td>
+          <td class="score-col"><span class="eng-num">300</span></td>
+          <td>Window Cleaning · Scott Marr cohort · Cory Lyons President (shared w/ Koala)</td>
+        </tr>
+
+        <tr onclick="showSection('brand-archadeck')" style="cursor:pointer">
+          <td>35 &nbsp; <span class="brand-cell">Archadeck Outdoor Living</span><div class="brand-meta">Mike Reeder (Brand Pres · former Archadeck franchisee) · OLB legacy</div></td>
+          <td class="score-col"><span class="score-num">61</span></td>
+          <td class="score-col"><span class="tier-badge tier-t5">T5</span></td>
+          <td class="score-col">100</td>
+          <td class="score-col">4</td>
+          <td class="score-col">400</td>
+          <td class="score-col"><span class="eng-num">400</span></td>
+          <td>Outdoor Living · OLB legacy cohort · ServiceMinder likely</td>
+        </tr>
+
+        <tr onclick="showSection('brand-conserva')" style="cursor:pointer">
+          <td>36 &nbsp; <span class="brand-cell">Conserva Irrigation</span><div class="brand-meta">Heather Todd (Brand Pres · 30+ yrs franchise) · OLB legacy</div></td>
+          <td class="score-col"><span class="score-num">61</span></td>
+          <td class="score-col"><span class="tier-badge tier-t5">T5</span></td>
+          <td class="score-col">100</td>
+          <td class="score-col">3</td>
+          <td class="score-col">300</td>
+          <td class="score-col"><span class="eng-num">300</span></td>
+          <td>Irrigation · OLB legacy · ServiceMinder confirmed (testimonial)</td>
+        </tr>
+
+        <tr onclick="showSection('brand-koala')" style="cursor:pointer">
+          <td>37 &nbsp; <span class="brand-cell">Koala Insulation</span><div class="brand-meta">Cory Lyons (Brand Pres · also Wallaby) · 395+ franchisees · Scott Marr cohort</div></td>
+          <td class="score-col"><span class="score-num">61</span></td>
+          <td class="score-col"><span class="tier-badge tier-t5">T5</span></td>
+          <td class="score-col">100</td>
+          <td class="score-col">4</td>
+          <td class="score-col">400</td>
+          <td class="score-col"><span class="eng-num">400</span></td>
+          <td>Insulation · Scott Marr cohort · 395+ franchisees · Cory Lyons President</td>
+        </tr>
+
+        <tr onclick="showSection('brand-olp')" style="cursor:pointer">
+          <td>38 &nbsp; <span class="brand-cell">Outdoor Lighting Perspectives</span><div class="brand-meta">Rich Young (Brand Pres) · Scott Zide CEO origin brand · OLB legacy</div></td>
+          <td class="score-col"><span class="score-num">61</span></td>
+          <td class="score-col"><span class="tier-badge tier-t5">T5</span></td>
+          <td class="score-col">150</td>
+          <td class="score-col">3</td>
+          <td class="score-col">450</td>
+          <td class="score-col"><span class="eng-num">450</span></td>
+          <td>Lighting · OLB legacy cohort · ServiceMinder likely · CEO origin brand</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Cohort callouts -->
+  <div class="cohort-callout">
+    <h3>Two cohorts inside Empower — different tactical motions</h3>
+    <p><strong>Scott Marr cohort (Bumble Roofing, Wallaby Windows, Canopy Lawn Care, Koala Insulation):</strong> Newer brands incubated/acquired under Empower's incubation team. Each runs ServiceMinder ($206/mo) as the core scheduling stack — that's an established FSM-lite competitor we may need to displace. ServiceMinder gives us a known competitor with public pricing — easy to position ServiceBridge's depth advantage. Cory Lyons covers two of the four (Wallaby + Koala).</p>
+    <p style="margin-top:8px"><strong>OLB legacy cohort (Archadeck, Conserva Irrigation, Outdoor Lighting Perspectives, Superior Fence &amp; Rail):</strong> The original Outdoor Living Brands family. ServiceMinder is likely here too — Conserva confirmed via testimonial. These brands have longer franchisee tenures and more entrenched workflows. OLP is also Scott Zide's origin brand (he was an OLP franchisee in St. Louis with his wife Erin before joining the franchisor side) — emotional credibility there matters.</p>
+    <p style="margin-top:8px"><strong>FRSTeam stands alone</strong> at T3 (restoration vertical, completely different operating model — insurance contents restoration, fabric/textile recovery). <strong>JAN-PRO</strong> is the giant outlier — 4,000 techs but commercial B2B cleaning with proprietary software (B2B commercial scheduling is very different from the residential service brands).</p>
+  </div>
+
+  <!-- How we scored -->
+  <div class="scoring-section">
+    <div class="section-head">How we scored these (V2 · 7 dimensions · Brand-Corp velocity weighting)</div>
+    <p style="font-size:12.5px;color:var(--ink);line-height:1.6;margin-bottom:12px">
+      Tier brackets and scores ladder from the Track 2 P1+P2 Brand Priority Matrix v2 (CRM v15.6). Scoring framework: <strong>Greenfield 30% · Network 15% · PE 10% · DM Access 15% · Urgency 15% · Displacement 5% · C/B Mix 10%</strong> + parent-tier inheritance bonus. Each readiness page applies the qualitative dimension lens from the Authority readiness work — Greenfield posture · Persona Access · Commercial/Consumer Mix · BPO · QuickBooks · Events.
+    </p>
+    <table class="scoring-table">
+      <thead><tr><th style="min-width:140px">Dimension</th><th>What "Strong" means at Empower</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Greenfield</strong></td><td>No ServiceTitan mandate anywhere in the portfolio (the Track 1 matrix shows 90/100 greenfield score, the strongest in P1). ServiceMinder is the soft incumbent on most brands — public pricing $206/mo, FSM-lite. Scott Marr emerging brands (Bumble, Canopy) are still incubating — cleanest greenfield. JAN-PRO is the exception (proprietary tracker, B2B commercial fit unclear).</td></tr>
+        <tr><td><strong>Persona Access</strong></td><td>Brand Presidents publicly named on empowerfranchising.com/our-team for FRSTeam, Archadeck, Conserva, OLP, Wallaby, Koala. Plus founder access at Bumble (David Bitan) and Superior Fence (Zach Peyton, retained as president after acquisition). Scott Zide CEO accessible (came up through franchising, including OLP franchisee himself). R. Scott Sutton CDO Aug 2025 — open to outside conversations given recent transition.</td></tr>
+        <tr><td><strong>Commercial / Consumer Mix</strong></td><td>Per Track 1 matrix, Empower is 70% Commercial — heaviest commercial mix in P1 (driven by JAN-PRO's 4,000-tech B2B cleaning network). Excluding JAN-PRO, the residential brands cluster Consumer-heavy. Strong fit for both, but B2B commercial workflows are different — JAN-PRO requires separate tactical thinking.</td></tr>
+        <tr><td><strong>BPO in place</strong></td><td>Mostly small franchisees with light back-office. JAN-PRO's master franchisee structure (master franchisees own territories, sublicense to unit franchisees) creates a BPO-like middle layer that's relevant for software decisions. Other brands likely no BPO. Andrea/Angie research task.</td></tr>
+        <tr><td><strong>QuickBooks already deployed</strong></td><td>Most franchisees are textbook QB users — small business, simple chart, payroll-heavy. High likelihood QB deployed. Validate Empower's franchisee program participation and any QB partnership.</td></tr>
+        <tr><td><strong>Events attended</strong></td><td><strong>Ignite Conference</strong> is the anchor — Empower's flagship annual meeting (Feb 2026 in Richmond was the largest in company history at 1,100+ franchisees). Theme "Accelerate Growth." Single-room access to all 10 brands and the executive team. Brand-specific events vary.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Recommendations -->
+  <div class="my-read" style="border-left-color: var(--blue); background: linear-gradient(135deg, #E8F1FB 0%, #D6E5F5 100%);">
+    <div class="my-read-label" style="color: var(--blue);">What we'd leverage · What we'd challenge</div>
+    <div class="my-read-headline">The Empower pitch is "ServiceBridge replaces ServiceMinder + adds the depth franchisees grow into" — different from the Authority pitch, because the incumbent is different.</div>
+    <div class="my-read-body">
+      <p><strong>What we'd leverage across all 9 residential brands (excluding JAN-PRO):</strong> (1) The Ignite Conference is THE warm room — 1,100+ franchisees in Richmond annually. (2) Scott Zide's personal franchisee origin (OLP St. Louis with Erin) makes him the rare CEO who reads field-pain in his own voice. (3) ServiceMinder is a known, public-pricing competitor — much easier displacement positioning than going against ServiceTitan or Successware. ($206/mo gives us a clear pricing reference point — ServiceBridge at $24.95/user/month is competitive on cost AND wins on depth.) (4) The MidOcean exit window (Year 3-4 of hold, building toward exit) means franchisor-level FSM standardization adds enterprise value at exit — the Insight Engine PE math story lands here. (5) R. Scott Sutton's Threshold-to-Empower move signals a CDO open to operating partnerships across his portfolio knowledge.</p>
+      <p><strong>What we'd challenge:</strong> (1) ServiceMinder isn't a non-event — it's installed, franchisees have built habits around it, and switching costs are real. Not as entrenched as ServiceTitan, but not greenfield either. (2) JAN-PRO is its own conversation — 4,000 techs is huge but the B2B commercial cleaning model with proprietary tracker is a different sale entirely; treat as separate motion. (3) Two cohorts means two slightly different pitches — Scott Marr brands are emerging/incubating (newer = easier sell on depth); OLB legacy brands have longer tenure and more habit (need stronger ROI proof). (4) FRSTeam is restoration — completely different vertical, separate sales cycle.</p>
+      <p><strong>The recommendation:</strong> Lead with FRSTeam (T3 Lead Pilot — restoration sweet spot, proven from BELFOR HOODZ pattern) and Bumble Roofing (T4, founder-led, fast-growing, clearest emerging-brand opportunity). Use Ignite Conference as the all-brand warm room. Frame ServiceBridge against ServiceMinder explicitly: same operator-friendly DNA, more depth. Engage Scott Zide via OLP-founder-credibility angle. Build the JAN-PRO conversation as a parallel separate track — different buyer, different model, much larger pool but very different fit profile. R. Scott Sutton as the strategic ally inside Empower.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════ FRSTEAM (T3 LEAD PILOT) ═══════════════ -->
+<section class="section" id="brand-frsteam">
+  <span class="brand-back" onclick="showSection('matrix')">← Back to Matrix</span>
+  <div class="brand-header pilot">
+    <div class="pilot-banner">★ T3 LEAD PILOT · SCORE 81 · RESTORATION VERTICAL <span class="pilot-banner-tag">P1 #3 · GREENFIELD-LED</span></div>
+    <div class="brand-eyebrow">Empower Brands · Track 2 · Brand #29 · Restoration sweet spot</div>
+    <h2 class="brand-title">FRSTeam</h2>
+    <div class="brand-subtitle">Contents restoration · Fabric/textile recovery · Scott Zide CEO portfolio · 50+ offices internationally · 20+ years operating</div>
+    <div class="brand-stats">
+      <div><div class="brand-stat-label">Locations</div><div class="brand-stat-value">100</div></div>
+      <div><div class="brand-stat-label">Techs / Loc</div><div class="brand-stat-value">5</div></div>
+      <div><div class="brand-stat-label">Total / Engageable</div><div class="brand-stat-value">500 / 500</div></div>
+      <div><div class="brand-stat-label">Y1 ARR @ 10%</div><div class="brand-stat-value">$15K</div></div>
+      <div><div class="brand-stat-label">Brand President</div><div class="brand-stat-value">Holly Murry (20+ yrs FRSTeam)</div></div>
+      <div><div class="brand-stat-label">Score · Tier</div><div class="brand-stat-value">81 · T3</div></div>
+    </div>
+  </div>
+
+  <div class="my-read">
+    <div class="my-read-label">My Read</div>
+    <div class="my-read-headline">FRSTeam is the restoration entry into Empower — same vertical as DRYmedic and STOP, but with a 20+ year brand president who helped launch the international franchise herself. The HOODZ pattern applies here.</div>
+    <div class="my-read-body">
+      <p>FRSTeam is contents restoration — specifically fabric/textile recovery (clothing, draperies, soft goods) plus electronics restoration after fire/water damage. Different from BELFOR/SERVPRO structural restoration; this is the specialty recovery layer that runs alongside structural work. The brand has 50+ offices internationally and was originally part of Lynx Franchising before the Empower formation. Holly Murry has been at FRSTeam over 20 years, helped launch the international franchise in 2006, and now serves as Brand President. That's longest-tenured brand president in the entire Empower portfolio.</p>
+      <p>The strategic frame is BELFOR HOODZ. HOODZ reached 94% organic ServiceBridge adoption in restoration with no brand-corp engagement. FRSTeam is the same vertical, different specialty, different parent — but the same operator profile (restoration crews, project-based work, multi-week jobs, insurance billing complexity). If FRSTeam reaches even 50% adoption with brand-corp engagement, that's a meaningful win that proves the model in Empower and ripples to the rest of the portfolio.</p>
+      <p>Tactical play: lead with the HOODZ proof point ("here's what happens when restoration franchisees self-select onto ServiceBridge — 94% adoption at HOODZ with zero brand-corp push; here's what happens when brand-corp leans in"). Holly Murry's tenure means she's seen multiple software cycles — speak to durability and franchisee adoption, not feature lists.</p>
+    </div>
+  </div>
+
+  <div class="dim-grid">
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Greenfield Posture</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Not ServiceMinder per typical Empower stack — restoration is its own software niche. Likely Xactimate-adjacent (insurance estimating) plus paper or basic scheduling. Real greenfield from FSM perspective. 100% engageable.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Persona Access</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Holly Murry (Brand President, 20+ years FRSTeam, helped launch international franchise 2006). Scott Zide CEO at portfolio level. Empower HQ Richmond accessible. Ignite Conference puts Holly + Scott + R. Scott Sutton in one room.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Commercial / Consumer Mix</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Mixed — residential (homeowner insurance claims for fire/water damage on clothing &amp; textiles) + commercial (business claims, larger portfolios). Insurance-paid revenue model. ServiceBridge handles both project-based and recurring components.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">BPO in place</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Restoration franchisees often use FNOL dispatch BPOs. Whether FRSTeam has shared corporate dispatch or franchisee-level BPOs is to validate. Critical research — if shared corporate BPO, that's the buying entity.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">QuickBooks already deployed</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Restoration billing is complex. Most franchisees use specialized restoration software + QB for book-of-record. Validate Empower's QB program participation.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Events attended</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Ignite Conference (Feb annual, Richmond — 2026 was largest in company history at 1,100+ franchisees, theme "Accelerate Growth"). RIA (Restoration Industry Association) annual convention. Insurance carrier summits. Multiple opportunities.</div></div>
+  </div>
+
+  <div class="lc-grid">
+    <div class="lc-card leverage">
+      <div class="lc-head">What we'd leverage</div>
+      <ul class="lc-list">
+        <li><strong>BELFOR HOODZ pattern.</strong> 94% organic ServiceBridge adoption in restoration — proof point that lands here.</li>
+        <li><strong>Holly Murry's 20-year tenure.</strong> Longest-serving brand president in Empower. Speaks operator language, has seen multiple software cycles.</li>
+        <li><strong>FRSTeam's specialty restoration positioning.</strong> Fabric/textile/electronics recovery — different from structural; ServiceBridge fits the project-based workflow well.</li>
+        <li><strong>Scott Zide CEO portfolio voice.</strong> Wins at FRSTeam ripple across the Empower portfolio — Zide takes proof points to the other 9 brand presidents.</li>
+        <li><strong>Ignite Conference Feb annual.</strong> Single-room access to all Empower leadership.</li>
+        <li><strong>50+ offices internationally.</strong> Larger reach than location count suggests — global franchise infrastructure.</li>
+      </ul>
+    </div>
+    <div class="lc-card challenges">
+      <div class="lc-head">What we'd challenge</div>
+      <ul class="lc-list">
+        <li><strong>Insurance-driven workflow.</strong> Carrier preferred-vendor portal integrations may be required — adds integration scope.</li>
+        <li><strong>Specialty vertical complexity.</strong> Fabric/textile recovery has unique inventory and chain-of-custody requirements vs. general FSM.</li>
+        <li><strong>Smaller location count.</strong> 100 locs · 500 techs = $15K Y1 ARR — moderate; volume play.</li>
+        <li><strong>Mature brand workflows.</strong> 20+ years means franchisees have established processes — change management is real.</li>
+        <li><strong>BELFOR / SERVPRO competitive shadow.</strong> Larger restoration franchisors may set benchmark franchisees compare against.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="persona-section">
+    <div class="section-head">Persona Map</div>
+    <table class="persona-table">
+      <thead><tr><th style="min-width:200px">Name &amp; Role</th><th>Why they matter</th><th style="min-width:120px">Path</th></tr></thead>
+      <tbody>
+        <tr><td><div class="persona-name">Holly Murry</div><div class="brand-meta">Brand President · FRSTeam (20+ years)</div></td><td>Helped launch international franchise 2006. Field, sales, ops experience. Most tenured brand pres in Empower. Operator-language fluent.</td><td><span class="persona-warm">★ LinkedIn warm</span></td></tr>
+        <tr><td><div class="persona-name">Scott Zide</div><div class="brand-meta">CEO · Empower Brands</div></td><td>Former OLP franchisee (St. Louis). Co-founded Outdoor Living Brands 2008 + Mosquito Squad. Operator origin = field-pain credibility.</td><td><span class="persona-warm">★ Convention</span></td></tr>
+        <tr><td><div class="persona-name">R. Scott Sutton</div><div class="brand-meta">CDO · Empower (Aug 2025)</div></td><td>Recently from Threshold Brands. Strategic intel embedded. Open to outside conversations given recent transition.</td><td><span class="persona-warm">★ Cross-network</span></td></tr>
+        <tr><td><div class="persona-name">Tom Welter</div><div class="brand-meta">COO · Empower Brands</div></td><td>Operations across all 10 brands. Multi-brand wedge persona.</td><td><span class="persona-validate">LinkedIn primary</span></td></tr>
+        <tr><td><div class="persona-name">Michael Borreca</div><div class="brand-meta">CFO · Empower Brands</div></td><td>Financial-rigor language. Garrett-aligned framing.</td><td><span class="persona-validate">LinkedIn primary</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="events-section">
+    <div class="section-head">Events to engage</div>
+    <div class="event-row"><div class="event-date">Feb (annual)</div><div><div class="event-name">Ignite Conference (Richmond)</div><div class="event-meta">Empower flagship. 2026 = largest in history at 1,100+ franchisees. Theme "Accelerate Growth." Single-room access to all 10 brand presidents + executive team.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual</div><div><div class="event-name">RIA Convention</div><div class="event-meta">Restoration Industry Association. Vendor showcase + technical sessions. Carrier intelligence channel.</div></div></div>
+    <div class="event-row"><div class="event-date">Year-round</div><div><div class="event-name">Insurance carrier summits</div><div class="event-meta">FRSTeam works with carrier preferred-vendor networks — vendor relationship channel.</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ BUMBLE ROOFING (T4) ═══════════════ -->
+<section class="section" id="brand-bumble">
+  <span class="brand-back" onclick="showSection('matrix')">← Back to Matrix</span>
+  <div class="brand-header">
+    <div class="brand-eyebrow">Empower Brands · Track 2 · Brand #30 · T4 NorthStar · Scott Marr cohort · Founder-led</div>
+    <h2 class="brand-title">Bumble Roofing</h2>
+    <div class="brand-subtitle">Roofing repair and installation · Founder David Bitan · Founded on client service and technology · Scott Marr cohort · ServiceMinder $206/mo wedge</div>
+    <div class="brand-stats">
+      <div><div class="brand-stat-label">Locations</div><div class="brand-stat-value">100</div></div>
+      <div><div class="brand-stat-label">Techs / Loc</div><div class="brand-stat-value">5</div></div>
+      <div><div class="brand-stat-label">Total / Engageable</div><div class="brand-stat-value">500 / 500</div></div>
+      <div><div class="brand-stat-label">Y1 ARR @ 10%</div><div class="brand-stat-value">$15K</div></div>
+      <div><div class="brand-stat-label">Founder</div><div class="brand-stat-value">David Bitan</div></div>
+      <div><div class="brand-stat-label">Score · Tier</div><div class="brand-stat-value">71 · T4</div></div>
+    </div>
+  </div>
+
+  <div class="my-read">
+    <div class="my-read-label">My Read</div>
+    <div class="my-read-headline">Bumble is the strongest emerging-brand opportunity in Empower — David Bitan founded the company on "client service and technology" as core differentiators, which means the founder is already wired to think about software as strategic, not just operational.</div>
+    <div class="my-read-body">
+      <p>Bumble Roofing was founded by David Bitan and incubated through Empower Brands. The brand's positioning explicitly cites "client service and technology" as foundational differentiators — that's a signal that the founder thinks about software platforms as competitive advantage, not as cost centers. ServiceMinder is the Scott Marr cohort default at $206/mo, but Bumble's tech-forward DNA means the founder may be more open to evaluating depth-vs-cost tradeoffs than founders who just inherited ServiceMinder.</p>
+      <p>Roofing is interesting from a ServiceBridge fit standpoint: high-ticket project work (typical job $5-15K residential), insurance-driven (storm damage claims), highly seasonal (summer storm season drives revenue concentration), and scheduling complexity is real (multi-day jobs, weather dependencies, crew coordination). That's a different value prop than recurring service brands — ServiceBridge wins on project workflow + insurance billing + customer communication during multi-day jobs.</p>
+      <p>The ServiceMinder displacement story is straightforward: ServiceMinder is FSM-lite at $206/mo. ServiceBridge at $24.95/user/month gets to similar pricing for small operations and offers deeper field workflows, better customer communication, and stronger commercial workflows for franchisees who grow into commercial roofing accounts. Lead with depth, not cost.</p>
+    </div>
+  </div>
+
+  <div class="dim-grid">
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Greenfield Posture</div><span class="dim-flag dim-flag-caution">Caution</span></div><div class="dim-narrative">Not ST-mandated. ServiceMinder is the Scott Marr cohort default — public pricing $206/mo, FSM-lite. Counts as engageable per burden-of-proof rule, but ServiceMinder displacement is a real motion. ServiceBridge depth advantage is the wedge.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Persona Access</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">David Bitan (Founder) — public, tech-forward DNA. Scott Zide CEO accessible. R. Scott Sutton CDO open. Ignite Conference single-room access.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Commercial / Consumer Mix</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Primarily residential roofing (homeowner storm/age replacements) + commercial expansion (light commercial roofing, multi-property management). ServiceBridge handles both. Project-heavy = ServiceBridge's commercial workflow strength.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">BPO in place</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Roofing franchisees rarely use BPO at franchisee level. Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">QuickBooks already deployed</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Roofing franchisees are typical QB small-business users. High likelihood. Validate Empower's QB program.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Events attended</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Ignite Conference (Feb Richmond). IRE Show (International Roofing Expo). NRCA (National Roofing Contractors Association). Insurance carrier vendor events.</div></div>
+  </div>
+
+  <div class="lc-grid">
+    <div class="lc-card leverage">
+      <div class="lc-head">What we'd leverage</div>
+      <ul class="lc-list">
+        <li><strong>David Bitan's tech-forward founder DNA.</strong> "Client service and technology" as core differentiators = founder thinks software is strategic.</li>
+        <li><strong>ServiceMinder is FSM-lite at $206/mo.</strong> Known competitor, public pricing, easy depth-vs-cost positioning.</li>
+        <li><strong>Project workflow strength.</strong> Multi-day roofing jobs, weather dependencies, insurance billing — ServiceBridge commercial workflows.</li>
+        <li><strong>Empower incubation team backing.</strong> Bumble is incubated brand with corporate investment in growth.</li>
+        <li><strong>Storm-season urgency.</strong> Roofing demand spikes Q2-Q3 — software efficiency matters most when volume hits.</li>
+        <li><strong>Caleb Shoup (NW Arkansas, Woodlands TX) Franchisee of the Year 2026.</strong> Reference franchisee for case studies.</li>
+      </ul>
+    </div>
+    <div class="lc-card challenges">
+      <div class="lc-head">What we'd challenge</div>
+      <ul class="lc-list">
+        <li><strong>ServiceMinder switching cost.</strong> Installed, franchisees have built habits — change management real.</li>
+        <li><strong>Roofing-specific software.</strong> AccuLynx, JobNimbus, Roofr, CompanyCam dominate roofing FSM — Bumble may already touch these.</li>
+        <li><strong>Insurance carrier portal integrations.</strong> Storm-claim workflows require carrier portal access — adds integration scope.</li>
+        <li><strong>Seasonal headcount fluctuations.</strong> Storm season = surge crews; license model must flex.</li>
+        <li><strong>Smaller location count.</strong> 100 locs · 500 techs = $15K Y1 ARR.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="persona-section">
+    <div class="section-head">Persona Map</div>
+    <table class="persona-table">
+      <thead><tr><th style="min-width:200px">Name &amp; Role</th><th>Why they matter</th><th style="min-width:120px">Path</th></tr></thead>
+      <tbody>
+        <tr><td><div class="persona-name">David Bitan</div><div class="brand-meta">Founder · Bumble Roofing</div></td><td>Tech-forward founder DNA. "Client service and technology" core positioning. Most accessible founder in Empower portfolio.</td><td><span class="persona-warm">★ Founder warm</span></td></tr>
+        <tr><td><div class="persona-name">Scott Zide</div><div class="brand-meta">CEO · Empower</div></td><td>Champion incubated brands. Bumble is core to incubation strategy.</td><td><span class="persona-warm">★ Convention</span></td></tr>
+        <tr><td><div class="persona-name">Caleb Shoup</div><div class="brand-meta">Franchisee of the Year 2026 (NW Arkansas + Woodlands TX)</div></td><td>Reference franchisee. Case study + voice-of-customer source.</td><td><span class="persona-validate">Field outreach</span></td></tr>
+        <tr><td><div class="persona-name">R. Scott Sutton</div><div class="brand-meta">CDO · Empower</div></td><td>Strategic ally inside Empower.</td><td><span class="persona-warm">★ Cross-network</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="events-section">
+    <div class="section-head">Events to engage</div>
+    <div class="event-row"><div class="event-date">Feb (annual)</div><div><div class="event-name">Ignite Conference (Richmond)</div><div class="event-meta">Empower flagship event.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual (Feb)</div><div><div class="event-name">IRE Show (International Roofing Expo)</div><div class="event-meta">Largest roofing trade show. Vendor showcase.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual</div><div><div class="event-name">NRCA Convention</div><div class="event-meta">National Roofing Contractors Association.</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ SUPERIOR FENCE (T4) ═══════════════ -->
+<section class="section" id="brand-superior">
+  <span class="brand-back" onclick="showSection('matrix')">← Back to Matrix</span>
+  <div class="brand-header">
+    <div class="brand-eyebrow">Empower Brands · Track 2 · Brand #31 · T4 NorthStar · OLB legacy · Founder retained</div>
+    <h2 class="brand-title">Superior Fence &amp; Rail</h2>
+    <div class="brand-subtitle">Fence installation · Co-founded by Zach Peyton · Acquired by Outdoor Living Brands 2022 (first OLB acquisition) · Peyton retained as president</div>
+    <div class="brand-stats">
+      <div><div class="brand-stat-label">Locations</div><div class="brand-stat-value">100</div></div>
+      <div><div class="brand-stat-label">Techs / Loc</div><div class="brand-stat-value">5</div></div>
+      <div><div class="brand-stat-label">Total / Engageable</div><div class="brand-stat-value">500 / 500</div></div>
+      <div><div class="brand-stat-label">Y1 ARR @ 10%</div><div class="brand-stat-value">$15K</div></div>
+      <div><div class="brand-stat-label">President</div><div class="brand-stat-value">Zach Peyton (Co-founder, retained)</div></div>
+      <div><div class="brand-stat-label">Score · Tier</div><div class="brand-stat-value">71 · T4</div></div>
+    </div>
+  </div>
+
+  <div class="my-read">
+    <div class="my-read-label">My Read</div>
+    <div class="my-read-headline">Zach Peyton co-founded Superior Fence and was retained as president after Outdoor Living Brands acquired in 2022 — that's the founder still running the brand. He scaled it to 36 units before acquisition; he's now growing it inside Empower.</div>
+    <div class="my-read-body">
+      <p>Superior Fence &amp; Rail was the first acquisition Outdoor Living Brands made under the new MidOcean ownership (announced Jan 2022). At acquisition, the brand had 36 units. Co-founder Zach Peyton was retained as president — that's the founder still in the chair, scaling the brand under new corporate parent. Scott Zide called out at the time: "they've grown the brand very fast, the ramp-up of new franchisees is incredibly strong." That growth signal is still relevant — fast-ramping franchisees mean a steady stream of new operators making tooling decisions.</p>
+      <p>Fence installation is project-based work — discovery → quote → permit → schedule → install → invoice. ServiceBridge handles project workflow well. The catch: fence franchisees often have specialty quoting software (line-by-line linear footage, gate counts, post specifications) that's tightly integrated with their CRM and bid management. ServiceMinder likely as the operating layer. ServiceBridge needs to coexist with quoting tools or replace at the FSM layer specifically.</p>
+    </div>
+  </div>
+
+  <div class="dim-grid">
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Greenfield Posture</div><span class="dim-flag dim-flag-caution">Caution</span></div><div class="dim-narrative">Not ST-mandated. ServiceMinder likely as operating stack (OLB legacy cohort default). Specialty fence-quoting tools may also be in mix. Engageable, but ServiceMinder displacement is real.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Persona Access</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Zach Peyton (Co-founder, retained as President). Scott Zide CEO familiar (acquired the brand, retained Peyton). Ignite Conference access.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Commercial / Consumer Mix</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Mixed — residential (homeowner fences) + commercial (multi-family, HOA, light commercial). ServiceBridge fits both.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">BPO in place</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Fence franchisees rarely use BPO. Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">QuickBooks already deployed</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Fence franchisees = typical QB users. Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Events attended</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Ignite Conference. AFA (American Fence Association) annual convention. Builder/contractor industry events.</div></div>
+  </div>
+
+  <div class="lc-grid">
+    <div class="lc-card leverage">
+      <div class="lc-head">What we'd leverage</div>
+      <ul class="lc-list">
+        <li><strong>Zach Peyton as founder-president.</strong> Co-founder still running the brand — direct decision authority.</li>
+        <li><strong>Fast-growth ramp.</strong> Scott Zide called out fast franchisee ramp at acquisition — pipeline of new operators making tooling decisions.</li>
+        <li><strong>Project workflow fit.</strong> Fence installation is multi-step project work — ServiceBridge commercial strength.</li>
+        <li><strong>Mixed res/commercial.</strong> Commercial fence (HOA, multi-family, light commercial) is recurring revenue layer franchisees want to grow into.</li>
+        <li><strong>OLB legacy cohort wedge.</strong> Wins here ripple to Archadeck, Conserva, OLP — same cohort, same parent.</li>
+      </ul>
+    </div>
+    <div class="lc-card challenges">
+      <div class="lc-head">What we'd challenge</div>
+      <ul class="lc-list">
+        <li><strong>Specialty fence-quoting software.</strong> Linear-footage quoting and bid management may live in dedicated tools — adds integration complexity.</li>
+        <li><strong>ServiceMinder displacement.</strong> Likely installed; switching costs real.</li>
+        <li><strong>Permit/regulatory complexity.</strong> Local fence permits vary widely — software must support documentation per municipality.</li>
+        <li><strong>Seasonal demand.</strong> Northern markets see Q4-Q1 dropoff.</li>
+        <li><strong>Smaller location count.</strong> 100 locs · 500 techs · $15K Y1.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="persona-section">
+    <div class="section-head">Persona Map</div>
+    <table class="persona-table">
+      <thead><tr><th style="min-width:200px">Name &amp; Role</th><th>Why they matter</th><th style="min-width:120px">Path</th></tr></thead>
+      <tbody>
+        <tr><td><div class="persona-name">Zach Peyton</div><div class="brand-meta">President · Superior Fence &amp; Rail (Co-founder)</div></td><td>Founder retained. Direct decision authority. Fast-growth track record.</td><td><span class="persona-warm">★ Founder warm</span></td></tr>
+        <tr><td><div class="persona-name">Scott Zide</div><div class="brand-meta">CEO · Empower</div></td><td>Acquired the brand, retained Peyton — has personal credibility with Peyton.</td><td><span class="persona-warm">★ Convention</span></td></tr>
+        <tr><td><div class="persona-name">R. Scott Sutton</div><div class="brand-meta">CDO · Empower</div></td><td>Cross-portfolio strategic ally.</td><td><span class="persona-warm">★ Cross-network</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="events-section">
+    <div class="section-head">Events to engage</div>
+    <div class="event-row"><div class="event-date">Feb (annual)</div><div><div class="event-name">Ignite Conference (Richmond)</div><div class="event-meta">Empower flagship.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual</div><div><div class="event-name">AFA Convention</div><div class="event-meta">American Fence Association annual.</div></div></div>
+    <div class="event-row"><div class="event-date">Year-round</div><div><div class="event-name">Builder/contractor regional shows</div><div class="event-meta">Local fence industry vendor opportunities.</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ CANOPY LAWN CARE (T5) ═══════════════ -->
+<section class="section" id="brand-canopy">
+  <span class="brand-back" onclick="showSection('matrix')">← Back to Matrix</span>
+  <div class="brand-header">
+    <div class="brand-eyebrow">Empower Brands · Track 2 · Brand #32 · T5 NorthStar · Scott Marr cohort · Incubated brand</div>
+    <h2 class="brand-title">Canopy Lawn Care</h2>
+    <div class="brand-subtitle">Lawn care · Scott Marr cohort · ServiceMinder confirmed · 42 units · Empower incubation team backed</div>
+    <div class="brand-stats">
+      <div><div class="brand-stat-label">Locations</div><div class="brand-stat-value">100</div></div>
+      <div><div class="brand-stat-label">Techs / Loc</div><div class="brand-stat-value">4</div></div>
+      <div><div class="brand-stat-label">Total / Engageable</div><div class="brand-stat-value">400 / 400</div></div>
+      <div><div class="brand-stat-label">Y1 ARR @ 10%</div><div class="brand-stat-value">$12K</div></div>
+      <div><div class="brand-stat-label">Brand President</div><div class="brand-stat-value">TBV (research task)</div></div>
+      <div><div class="brand-stat-label">Score · Tier</div><div class="brand-stat-value">66 · T5</div></div>
+    </div>
+  </div>
+
+  <div class="my-read">
+    <div class="my-read-label">My Read</div>
+    <div class="my-read-headline">Canopy is incubation-stage — 42 units now per matrix, ServiceMinder confirmed in stack. Recurring lawn-care routes are ServiceBridge sweet spot, and 2026 produced 5 Franchisee-of-the-Year winners — fast operator growth.</div>
+    <div class="my-read-body">
+      <p>Canopy Lawn Care is one of Empower's two incubated brands (alongside Bumble Roofing) per the 2023 Empower expansion announcement. The Empower incubation team is explicitly designed to nurture emerging brands — that's a deliberate corporate investment posture. The Ignite 2026 conference recognized 5 Canopy Franchisee-of-the-Year winners (Shawn Enderle/Lexington, Alejandro Real/South Miami, Justin McNeely/Dallas, Krista Butler/Pocatello, Parker Sheets/North Dallas) — that's a brand with multiple high-performing operators across diverse markets. Strong franchisee bench.</p>
+      <p>Lawn care is recurring weekly/bi-weekly route work — the textbook ServiceBridge fit. ServiceMinder is confirmed as the current stack per matrix. ServiceMinder at $206/mo handles basic scheduling but lacks ServiceBridge's commercial workflow depth (commercial lawn care contracts, multi-property accounts, seasonal headcount management). The wedge: ServiceBridge takes the franchisees who grow into commercial accounts; ServiceMinder stays for pure residential.</p>
+    </div>
+  </div>
+
+  <div class="dim-grid">
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Greenfield Posture</div><span class="dim-flag dim-flag-caution">Caution</span></div><div class="dim-narrative">Not ST-mandated. ServiceMinder confirmed per matrix. Engageable per burden-of-proof rule, displacement motion against ServiceMinder.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Persona Access</div><span class="dim-flag dim-flag-caution">Caution</span></div><div class="dim-narrative">Brand president TBV — research task. Scott Zide CEO accessible. Ignite Conference puts brand pres + corporate in room. 5 Franchisee-of-the-Year winners are voice-of-customer references.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Commercial / Consumer Mix</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Primarily residential lawn care + growing commercial maintenance contracts. ServiceBridge handles both — commercial is the upside argument.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">BPO in place</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Lawn franchisees rarely BPO at franchisee level. Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">QuickBooks already deployed</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Lawn franchisees = typical QB users. Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Events attended</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Ignite Conference. GIE+EXPO Louisville (October). NALP ELEVATE.</div></div>
+  </div>
+
+  <div class="lc-grid">
+    <div class="lc-card leverage">
+      <div class="lc-head">What we'd leverage</div>
+      <ul class="lc-list">
+        <li><strong>Empower incubation team backing.</strong> Brand has corporate investment in growth.</li>
+        <li><strong>5 Franchisee-of-the-Year winners 2026.</strong> Diverse-market reference operators.</li>
+        <li><strong>Recurring lawn routes.</strong> ServiceBridge's strongest fit profile.</li>
+        <li><strong>ServiceMinder is FSM-lite at $206/mo.</strong> Easy depth-vs-cost positioning.</li>
+        <li><strong>Commercial growth opportunity.</strong> Franchisees growing into commercial maintenance contracts need stronger workflow tooling than ServiceMinder.</li>
+      </ul>
+    </div>
+    <div class="lc-card challenges">
+      <div class="lc-head">What we'd challenge</div>
+      <ul class="lc-list">
+        <li><strong>ServiceMinder confirmed installed.</strong> Switching cost real.</li>
+        <li><strong>Brand-pres TBV.</strong> Need to identify decision-maker.</li>
+        <li><strong>Competitive lawn-care SaaS.</strong> Service Autopilot, Real Green entrenched in lawn industry.</li>
+        <li><strong>Smaller incubation-stage scale.</strong> 100 locs · 400 techs · $12K Y1 ARR.</li>
+        <li><strong>Seasonal headcount.</strong> Variable crew — license accounting flex.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="persona-section">
+    <div class="section-head">Persona Map</div>
+    <table class="persona-table">
+      <thead><tr><th style="min-width:200px">Name &amp; Role</th><th>Why they matter</th><th style="min-width:120px">Path</th></tr></thead>
+      <tbody>
+        <tr><td><div class="persona-name">Canopy Brand President</div><div class="brand-meta">TBV — research task</div></td><td>Brand-level decision-maker. Identify via empowerfranchising.com/our-team.</td><td><span class="persona-validate">Research task</span></td></tr>
+        <tr><td><div class="persona-name">Scott Zide</div><div class="brand-meta">CEO · Empower</div></td><td>Champions incubated brands.</td><td><span class="persona-warm">★ Convention</span></td></tr>
+        <tr><td><div class="persona-name">5 Franchisee-of-the-Year winners</div><div class="brand-meta">2026 honorees across Lexington, Miami, Dallas, Pocatello, N. Dallas</div></td><td>Reference customers. Voice-of-customer for case studies.</td><td><span class="persona-validate">Field outreach</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="events-section">
+    <div class="section-head">Events to engage</div>
+    <div class="event-row"><div class="event-date">Feb (annual)</div><div><div class="event-name">Ignite Conference (Richmond)</div><div class="event-meta">Empower flagship.</div></div></div>
+    <div class="event-row"><div class="event-date">Oct (annual)</div><div><div class="event-name">GIE+EXPO Louisville</div><div class="event-meta">Outdoor industry expo.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual</div><div><div class="event-name">NALP ELEVATE</div><div class="event-meta">National Association of Landscape Professionals.</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ JAN-PRO (CAUTION) ═══════════════ -->
+<section class="section" id="brand-janpro">
+  <span class="brand-back" onclick="showSection('matrix')">← Back to Matrix</span>
+  <div class="brand-header caution">
+    <div class="caution-banner">⚠ CAUTION · DIFFERENT FIT PROFILE · COMMERCIAL B2B + PROPRIETARY TRACKER <span class="caution-banner-tag">T5 · SCORE 63 · 4,000 TECHS</span></div>
+    <div class="brand-eyebrow">Empower Brands · Track 2 · Brand #33 · ⚠ Caution · Largest brand by tech count · Distinct B2B model</div>
+    <h2 class="brand-title">JAN-PRO</h2>
+    <div class="brand-subtitle">Commercial cleaning &amp; disinfecting · Master franchisee model · Proprietary tracker software · #1 Franchise 500 commercial cleaning category</div>
+    <div class="brand-stats">
+      <div><div class="brand-stat-label">Locations</div><div class="brand-stat-value">1,000</div></div>
+      <div><div class="brand-stat-label">Techs / Loc</div><div class="brand-stat-value">4</div></div>
+      <div><div class="brand-stat-label">Total / Engageable</div><div class="brand-stat-value">4,000 / 4,000</div></div>
+      <div><div class="brand-stat-label">Y1 ARR @ 10%</div><div class="brand-stat-value">$120K (largest single brand opportunity)</div></div>
+      <div><div class="brand-stat-label">Model</div><div class="brand-stat-value">Master franchisee → Unit franchisee</div></div>
+      <div><div class="brand-stat-label">Score · Tier</div><div class="brand-stat-value">63 · ⚠ T5 Caution</div></div>
+    </div>
+  </div>
+
+  <div class="my-read" style="background: linear-gradient(135deg, #FFF1E0 0%, #FCE4C0 100%); border-left-color: var(--orange);">
+    <div class="my-read-label" style="color: var(--orange);">⚠ My Read · CAUTION FLAG</div>
+    <div class="my-read-headline">JAN-PRO is the largest single-brand opportunity in all of Track 2 by tech count (4,000 — more than the entire engageable Authority portfolio). But it's commercial B2B with proprietary tracker software — it requires a fundamentally different sales motion than the rest of the Empower portfolio.</div>
+    <div class="my-read-body">
+      <p><strong>What makes JAN-PRO different:</strong> JAN-PRO Cleaning &amp; Disinfecting operates a master-franchisee model. Master franchisees own large territories and sub-license to unit franchisees who clean specific commercial accounts (offices, medical facilities, retail). Unit franchisees are typically owner-operators with 1-3 cleaners. Master franchisees provide back-office support, billing, and scheduling — that's where software lives. Most franchisees use JAN-PRO's proprietary tracker software, not third-party FSM. That makes it a different sale entirely: we're not selling to an individual franchisee, we're selling to master franchisees or to JAN-PRO corporate as the platform standard.</p>
+      <p><strong>Why "Caution" — not exclusion:</strong> 4,000 techs is too large to ignore — that's $120K Y1 ARR at 10% penetration, larger than 8 of the other 9 Empower brands combined. JAN-PRO ranked #1 in Franchise 500 commercial cleaning category 2026. The opportunity is real. But the sales motion is fundamentally different from residential service brands. Commercial cleaning workflows are night-shift heavy, route-density per master territory, recurring contracts with carrier-grade SLA tracking, and substantial QC/inspection layers. ServiceBridge has the depth — but the pitch is "platform replacement for proprietary tracker," not "ServiceMinder displacement."</p>
+      <p><strong>The recommendation:</strong> Treat JAN-PRO as a parallel separate engagement track within Empower. Don't bundle JAN-PRO into the residential-brand pitch — different buyer (corporate / master franchisee, not individual operator), different value prop (proprietary tracker replacement, not FSM-lite displacement), different cycle (longer enterprise sale). Validate first via Andrea: does GPSI have any JAN-PRO master franchisees in the customer base? If yes, that's the wedge. If no, this is a longer-cycle enterprise pursuit and should be staged after the residential brands prove the Empower model.</p>
+    </div>
+  </div>
+
+  <div class="dim-grid">
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Greenfield Posture</div><span class="dim-flag dim-flag-caution">Caution</span></div><div class="dim-narrative">Not ST-mandated. JAN-PRO uses proprietary tracker — not ServiceMinder, not Successware. Replacing proprietary corporate-built software is harder than displacing third-party FSM. Engageable per burden-of-proof rule, but motion is different.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Persona Access</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">JAN-PRO Brand President TBV. Scott Zide CEO at Empower portfolio level. Master franchisee structure means decisions may live with master franchisees, not corporate. Different buyer profile than other Empower brands.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Commercial / Consumer Mix</div><span class="dim-flag dim-flag-caution">Caution</span></div><div class="dim-narrative">100% Commercial B2B (offices, medical, retail). Different workflow profile from residential service brands. ServiceBridge has commercial workflows — but adoption requires re-tooling messaging and sales motion.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">BPO in place</div><span class="dim-flag dim-flag-caution">Caution</span></div><div class="dim-narrative">JAN-PRO master franchisees ARE essentially the BPO layer — they handle billing, scheduling, dispatch for unit franchisees. Master franchisee structure = built-in BPO. Software decision lives with master, not unit.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">QuickBooks already deployed</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Master franchisees likely use QB or larger ERP. Unit franchisees may have minimal accounting needs. Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Events attended</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Ignite Conference. ISSA Show (commercial cleaning). BSCAI (Building Service Contractors). Master franchisee summits. Multiple commercial-cleaning-specific opportunities.</div></div>
+  </div>
+
+  <div class="lc-grid">
+    <div class="lc-card leverage">
+      <div class="lc-head">What we'd leverage IF JAN-PRO is the right fit</div>
+      <ul class="lc-list">
+        <li><strong>4,000 techs · $120K Y1 ARR.</strong> Largest single-brand opportunity in Track 2.</li>
+        <li><strong>#1 Franchise 500 commercial cleaning 2026.</strong> Brand strength is real.</li>
+        <li><strong>Master franchisee structure.</strong> Selling to ~50 master franchisees instead of 1,000 unit franchisees = enterprise sale, fewer touches.</li>
+        <li><strong>Proprietary tracker is replaceable.</strong> Internal-built software has maintenance burden — outsourcing to ServiceBridge frees corporate engineering.</li>
+        <li><strong>Commercial cleaning is volume-density work.</strong> ServiceBridge's commercial workflows directly apply.</li>
+        <li><strong>Largest brand inside Empower — corporate prestige.</strong> Win JAN-PRO and the rest of the portfolio follows.</li>
+      </ul>
+    </div>
+    <div class="lc-card challenges">
+      <div class="lc-head">What we'd challenge</div>
+      <ul class="lc-list">
+        <li><strong>Proprietary tracker = sunk-cost emotional attachment.</strong> Corporate built it. Replacement is a political conversation, not a software one.</li>
+        <li><strong>Master franchisee structure complicates the buyer.</strong> Multiple decision-makers per region.</li>
+        <li><strong>Different sales motion from rest of Empower.</strong> B2B commercial vs. residential service.</li>
+        <li><strong>Commercial cleaning SaaS competitive set.</strong> CleanGuru, Swept, Janitorial Manager target this category specifically.</li>
+        <li><strong>Long enterprise cycle.</strong> Multi-quarter procurement vs. franchisee-by-franchisee adoption.</li>
+        <li><strong>SLA &amp; QC layer.</strong> Commercial cleaning contracts have inspection/QC workflows — adds integration scope.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="persona-section">
+    <div class="section-head">Persona Map</div>
+    <table class="persona-table">
+      <thead><tr><th style="min-width:200px">Name &amp; Role</th><th>Why they matter</th><th style="min-width:120px">Path</th></tr></thead>
+      <tbody>
+        <tr><td><div class="persona-name">JAN-PRO Brand President</div><div class="brand-meta">TBV — research task</div></td><td>Brand-level corporate decision-maker. Identify via empowerfranchising.com.</td><td><span class="persona-validate">Research task</span></td></tr>
+        <tr><td><div class="persona-name">JAN-PRO Master Franchisees</div><div class="brand-meta">~50 regional master franchisees nationally</div></td><td>Real software buyers in JAN-PRO model — they own back-office for their unit franchisees.</td><td><span class="persona-validate">Field research</span></td></tr>
+        <tr><td><div class="persona-name">Scott Zide</div><div class="brand-meta">CEO · Empower</div></td><td>JAN-PRO is the largest brand in his portfolio.</td><td><span class="persona-warm">★ Convention</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="events-section">
+    <div class="section-head">Events to engage</div>
+    <div class="event-row"><div class="event-date">Feb (annual)</div><div><div class="event-name">Ignite Conference (Richmond)</div><div class="event-meta">Empower flagship.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual (Nov)</div><div><div class="event-name">ISSA Show</div><div class="event-meta">Commercial cleaning industry anchor event.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual</div><div><div class="event-name">BSCAI Convention</div><div class="event-meta">Building Service Contractors Association International.</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ WALLABY WINDOWS (T5) ═══════════════ -->
+<section class="section" id="brand-wallaby">
+  <span class="brand-back" onclick="showSection('matrix')">← Back to Matrix</span>
+  <div class="brand-header">
+    <div class="brand-eyebrow">Empower Brands · Track 2 · Brand #34 · T5 NorthStar · Scott Marr cohort · Cory Lyons (shared with Koala)</div>
+    <h2 class="brand-title">Wallaby Windows</h2>
+    <div class="brand-subtitle">Window cleaning &amp; replacement · Scott Marr cohort · ServiceMinder default · Cory Lyons shared brand pres with Koala Insulation</div>
+    <div class="brand-stats">
+      <div><div class="brand-stat-label">Locations</div><div class="brand-stat-value">100</div></div>
+      <div><div class="brand-stat-label">Techs / Loc</div><div class="brand-stat-value">3</div></div>
+      <div><div class="brand-stat-label">Total / Engageable</div><div class="brand-stat-value">300 / 300</div></div>
+      <div><div class="brand-stat-label">Y1 ARR @ 10%</div><div class="brand-stat-value">$9K</div></div>
+      <div><div class="brand-stat-label">Brand President</div><div class="brand-stat-value">Cory Lyons (also Koala)</div></div>
+      <div><div class="brand-stat-label">Score · Tier</div><div class="brand-stat-value">63 · T5</div></div>
+    </div>
+  </div>
+
+  <div class="my-read">
+    <div class="my-read-label">My Read</div>
+    <div class="my-read-headline">Wallaby + Koala share a Brand President in Cory Lyons — that's a paired play. Win Lyons and you get both brands; lose Lyons and you lose both.</div>
+    <div class="my-read-body">
+      <p>Cory Lyons serves as Brand President of both Wallaby Windows and Koala Insulation. That shared-leadership structure creates a meaningful efficiency: one decision-maker, two brands, two scoring instances on the matrix (T5 each, 700 total techs combined). Lyons is the focal point — the conversation about ServiceBridge at Wallaby is automatically the conversation at Koala.</p>
+      <p>Wallaby Windows is window cleaning and window replacement — mixed model. Window cleaning is recurring route work (residential + commercial); window replacement is project-based. ServiceBridge handles both. ServiceMinder is the Scott Marr cohort default at $206/mo. The displacement story: Wallaby franchisees who grow into commercial cleaning contracts need the deeper workflow ServiceBridge offers; ServiceMinder caps out earlier.</p>
+    </div>
+  </div>
+
+  <div class="dim-grid">
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Greenfield Posture</div><span class="dim-flag dim-flag-caution">Caution</span></div><div class="dim-narrative">Not ST-mandated. ServiceMinder default per Scott Marr cohort. Engageable, displacement motion.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Persona Access</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Cory Lyons (Brand Pres, also Koala). Single decision-maker, two brands. Scott Zide CEO accessible. Ignite Conference.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Commercial / Consumer Mix</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Mixed — residential window cleaning + commercial property contracts. Window replacement is project-based. ServiceBridge handles all three workflows.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">BPO in place</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Window franchisees rarely BPO. Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">QuickBooks already deployed</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Typical QB users. Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Events attended</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Ignite Conference. IWCA (International Window Cleaning Association) annual. Industry vendor events.</div></div>
+  </div>
+
+  <div class="lc-grid">
+    <div class="lc-card leverage">
+      <div class="lc-head">What we'd leverage</div>
+      <ul class="lc-list">
+        <li><strong>Cory Lyons covers Wallaby + Koala.</strong> One conversation, two brands.</li>
+        <li><strong>Mixed recurring + project work.</strong> ServiceBridge fits both better than ServiceMinder.</li>
+        <li><strong>ServiceMinder $206/mo public pricing.</strong> Easy positioning.</li>
+        <li><strong>Commercial growth angle.</strong> Window cleaning franchisees grow into commercial property contracts — workflow depth matters.</li>
+        <li><strong>Scott Marr cohort wedge.</strong> Wins ripple to Bumble + Canopy + Koala.</li>
+      </ul>
+    </div>
+    <div class="lc-card challenges">
+      <div class="lc-head">What we'd challenge</div>
+      <ul class="lc-list">
+        <li><strong>ServiceMinder displacement.</strong> Installed across cohort.</li>
+        <li><strong>Smallest tech count in cohort.</strong> 100 locs · 300 techs · $9K Y1.</li>
+        <li><strong>Niche window-cleaning SaaS.</strong> ResponsiBid, Customer Factor target window-cleaning specifically.</li>
+        <li><strong>Brand newer in market.</strong> Adoption velocity slower than mature brands.</li>
+        <li><strong>Lyons covers 2 brands.</strong> Attention is split — slower decision velocity per brand.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="persona-section">
+    <div class="section-head">Persona Map</div>
+    <table class="persona-table">
+      <thead><tr><th style="min-width:200px">Name &amp; Role</th><th>Why they matter</th><th style="min-width:120px">Path</th></tr></thead>
+      <tbody>
+        <tr><td><div class="persona-name">Cory Lyons</div><div class="brand-meta">Brand President · Wallaby Windows + Koala Insulation</div></td><td>One conversation, two brands. Highest-leverage single contact across Scott Marr emerging brands.</td><td><span class="persona-warm">★ LinkedIn warm</span></td></tr>
+        <tr><td><div class="persona-name">Scott Zide</div><div class="brand-meta">CEO · Empower</div></td><td>Champions emerging brands.</td><td><span class="persona-warm">★ Convention</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="events-section">
+    <div class="section-head">Events to engage</div>
+    <div class="event-row"><div class="event-date">Feb (annual)</div><div><div class="event-name">Ignite Conference (Richmond)</div><div class="event-meta">Empower flagship.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual</div><div><div class="event-name">IWCA Convention</div><div class="event-meta">International Window Cleaning Association annual.</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ ARCHADECK (T5) ═══════════════ -->
+<section class="section" id="brand-archadeck">
+  <span class="brand-back" onclick="showSection('matrix')">← Back to Matrix</span>
+  <div class="brand-header">
+    <div class="brand-eyebrow">Empower Brands · Track 2 · Brand #35 · T5 NorthStar · OLB legacy · 40+ years</div>
+    <h2 class="brand-title">Archadeck Outdoor Living</h2>
+    <div class="brand-subtitle">Outdoor living spaces · Decks, patios, porches, pergolas · 40+ years operating · OLB legacy cohort · Mike Reeder (former franchisee)</div>
+    <div class="brand-stats">
+      <div><div class="brand-stat-label">Locations</div><div class="brand-stat-value">100</div></div>
+      <div><div class="brand-stat-label">Techs / Loc</div><div class="brand-stat-value">4</div></div>
+      <div><div class="brand-stat-label">Total / Engageable</div><div class="brand-stat-value">400 / 400</div></div>
+      <div><div class="brand-stat-label">Y1 ARR @ 10%</div><div class="brand-stat-value">$12K</div></div>
+      <div><div class="brand-stat-label">Brand President</div><div class="brand-stat-value">Mike Reeder (former Archadeck franchisee, Columbus OH 15 yrs)</div></div>
+      <div><div class="brand-stat-label">Score · Tier</div><div class="brand-stat-value">61 · T5</div></div>
+    </div>
+  </div>
+
+  <div class="my-read">
+    <div class="my-read-label">My Read</div>
+    <div class="my-read-headline">Mike Reeder ran an Archadeck franchise in Columbus OH for 15 years before joining corporate — same operator-origin pattern as Katie Dills at TCA and Scott Zide at Empower. Field-pain credibility built in.</div>
+    <div class="my-read-body">
+      <p>Mike Reeder joined Outdoor Living Brands in 2016 as Archadeck Brand President — but only after running an Archadeck franchise in Columbus, Ohio for 15 years himself. Before franchising, he spent 15+ years at Hyatt Hotels. Now he runs the brand at corporate, coaching new franchisees and monitoring the brand's growth. Archadeck has 40+ years of operating history — the longest-tenured brand in the Empower portfolio. Qualified Remodeler ranked it #28 on the 2023 Top 500 Remodelers list.</p>
+      <p>Outdoor living projects are project-heavy work — design, permit, build, finish. Multi-week jobs, dependency chains, sub-contractor coordination, weather contingencies. ServiceBridge's commercial workflows fit naturally. The challenge: Archadeck has decades of process habits. Franchisees have built workflows around whatever software's been used over the years. Change management is real. Lead with Reeder's franchisee credibility — "we built this for operators like the one you used to be."</p>
+    </div>
+  </div>
+
+  <div class="dim-grid">
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Greenfield Posture</div><span class="dim-flag dim-flag-caution">Caution</span></div><div class="dim-narrative">Not ST-mandated. ServiceMinder likely as OLB legacy default. 40+ years means franchisees have established workflow habits — older = more entrenched.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Persona Access</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Mike Reeder (Brand Pres, former 15-year Archadeck franchisee). Scott Zide CEO. Ignite Conference.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Commercial / Consumer Mix</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Primarily residential outdoor living. Some commercial outdoor (multi-family, restaurant patios). Project-based work fits ServiceBridge commercial workflows.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">BPO in place</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">QuickBooks already deployed</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Typical QB users. Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Events attended</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Ignite Conference. International Pool Spa Patio Expo. NADRA (North American Deck and Railing Association). Qualified Remodeler events.</div></div>
+  </div>
+
+  <div class="lc-grid">
+    <div class="lc-card leverage">
+      <div class="lc-head">What we'd leverage</div>
+      <ul class="lc-list">
+        <li><strong>Mike Reeder's franchisee origin.</strong> 15 years as operator before corporate. Operator-language fluent.</li>
+        <li><strong>40+ years of brand authority.</strong> Most established brand in Empower.</li>
+        <li><strong>Project-based outdoor work.</strong> Multi-week jobs, dependencies — ServiceBridge commercial fit.</li>
+        <li><strong>Qualified Remodeler #28.</strong> Industry credibility.</li>
+        <li><strong>Scott Zide's OLB origin.</strong> Zide co-founded Outdoor Living Brands in 2008 — Archadeck is family for him.</li>
+      </ul>
+    </div>
+    <div class="lc-card challenges">
+      <div class="lc-head">What we'd challenge</div>
+      <ul class="lc-list">
+        <li><strong>40-year-old brand workflow habits.</strong> Hardest change management in Empower.</li>
+        <li><strong>ServiceMinder + design/CAD tools likely stacked.</strong> Multiple software touchpoints.</li>
+        <li><strong>Construction industry-specific software.</strong> BuilderTrend, JobTread target outdoor construction.</li>
+        <li><strong>Permit/regulatory complexity.</strong> Decks/patios require local permits — software documentation.</li>
+        <li><strong>Smaller location count.</strong> 100 locs · 400 techs · $12K Y1.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="persona-section">
+    <div class="section-head">Persona Map</div>
+    <table class="persona-table">
+      <thead><tr><th style="min-width:200px">Name &amp; Role</th><th>Why they matter</th><th style="min-width:120px">Path</th></tr></thead>
+      <tbody>
+        <tr><td><div class="persona-name">Mike Reeder</div><div class="brand-meta">Brand President · Archadeck (since 2016)</div></td><td>Former 15-year Archadeck franchisee Columbus OH. Operator-credibility built in.</td><td><span class="persona-warm">★ LinkedIn warm</span></td></tr>
+        <tr><td><div class="persona-name">Scott Zide</div><div class="brand-meta">CEO · Empower</div></td><td>Co-founded OLB 2008 — Archadeck is in the family DNA.</td><td><span class="persona-warm">★ Convention</span></td></tr>
+        <tr><td><div class="persona-name">Brian and Judy Zdgiebloski</div><div class="brand-meta">2026 Franchisee of the Year (Woodbridge)</div></td><td>Reference customer.</td><td><span class="persona-validate">Field outreach</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="events-section">
+    <div class="section-head">Events to engage</div>
+    <div class="event-row"><div class="event-date">Feb (annual)</div><div><div class="event-name">Ignite Conference (Richmond)</div><div class="event-meta">Empower flagship.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual (Nov)</div><div><div class="event-name">International Pool Spa Patio Expo</div><div class="event-meta">Outdoor living vendor showcase.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual</div><div><div class="event-name">NADRA</div><div class="event-meta">North American Deck and Railing Association.</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONSERVA IRRIGATION (T5) ═══════════════ -->
+<section class="section" id="brand-conserva">
+  <span class="brand-back" onclick="showSection('matrix')">← Back to Matrix</span>
+  <div class="brand-header">
+    <div class="brand-eyebrow">Empower Brands · Track 2 · Brand #36 · T5 NorthStar · OLB legacy · ServiceMinder confirmed</div>
+    <h2 class="brand-title">Conserva Irrigation</h2>
+    <div class="brand-subtitle">Irrigation services · OLB legacy cohort · Heather Todd (Brand Pres, 30+ yrs franchise) · ServiceMinder confirmed via testimonial</div>
+    <div class="brand-stats">
+      <div><div class="brand-stat-label">Locations</div><div class="brand-stat-value">100</div></div>
+      <div><div class="brand-stat-label">Techs / Loc</div><div class="brand-stat-value">3</div></div>
+      <div><div class="brand-stat-label">Total / Engageable</div><div class="brand-stat-value">300 / 300</div></div>
+      <div><div class="brand-stat-label">Y1 ARR @ 10%</div><div class="brand-stat-value">$9K</div></div>
+      <div><div class="brand-stat-label">Brand President</div><div class="brand-stat-value">Heather Todd (30+ yrs franchise experience)</div></div>
+      <div><div class="brand-stat-label">Score · Tier</div><div class="brand-stat-value">61 · T5</div></div>
+    </div>
+  </div>
+
+  <div class="my-read">
+    <div class="my-read-label">My Read</div>
+    <div class="my-read-headline">Heather Todd has 30+ years of franchise experience — her parents launched their training and consulting franchise when she was a child. She is, in the most literal sense, a franchise lifer. Conserva runs ServiceMinder confirmed via published testimonial.</div>
+    <div class="my-read-body">
+      <p>Heather Todd serves as Brand President of Conserva Irrigation. She joined the home services space in 2009, led operations for a multi-brand franchisee, then joined a multi-brand franchisor as VP of Operations before joining Empower. Her franchise journey started as a child when her parents launched their training and consulting franchise — that's 30+ years of franchise DNA. She champions the "Conserva Way" with focus on growth and excellence preserving brand culture.</p>
+      <p>Conserva is the OLB legacy brand where ServiceMinder is confirmed in the stack via published testimonial — that's a known data point we don't have for the other OLB brands. Irrigation work is recurring (sprinkler maintenance, system checks, seasonal start-up/winterization) plus project-based (new system installs, retrofits). ServiceBridge handles both. The displacement motion against ServiceMinder is the same as the rest of the cohort, but with the advantage that Conserva's testimonial is public — we can cite ServiceMinder explicitly in pitch.</p>
+    </div>
+  </div>
+
+  <div class="dim-grid">
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Greenfield Posture</div><span class="dim-flag dim-flag-caution">Caution</span></div><div class="dim-narrative">Not ST-mandated. ServiceMinder confirmed via Conserva testimonial — public confirmation. Engageable, displacement motion known.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Persona Access</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Heather Todd (Brand Pres, 30+ yrs franchise experience). Lives in Richmond VA — same town as Empower HQ. Strong Empower-corporate proximity.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Commercial / Consumer Mix</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Mixed — residential irrigation + commercial property contracts (office parks, HOAs, multi-family). ServiceBridge handles both.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">BPO in place</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">QuickBooks already deployed</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Typical QB users. Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Events attended</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Ignite Conference. IA (Irrigation Association) Show. Lawn industry events.</div></div>
+  </div>
+
+  <div class="lc-grid">
+    <div class="lc-card leverage">
+      <div class="lc-head">What we'd leverage</div>
+      <ul class="lc-list">
+        <li><strong>Heather Todd's 30+ years franchise DNA.</strong> Franchise lifer — speaks the language.</li>
+        <li><strong>Richmond VA proximity to Empower HQ.</strong> Direct access to corporate.</li>
+        <li><strong>ServiceMinder confirmed publicly.</strong> Open the displacement conversation directly.</li>
+        <li><strong>Recurring irrigation routes.</strong> Seasonal start-up, mid-season maintenance, winterization — predictable cycles.</li>
+        <li><strong>Commercial contracts upside.</strong> Property management contracts are recurring revenue.</li>
+      </ul>
+    </div>
+    <div class="lc-card challenges">
+      <div class="lc-head">What we'd challenge</div>
+      <ul class="lc-list">
+        <li><strong>ServiceMinder confirmed installed.</strong> Switching cost real.</li>
+        <li><strong>Irrigation-specific software.</strong> Hydrawise (Hunter), Rachio Pro, Real Green Cloud target irrigation.</li>
+        <li><strong>Smallest cohort tech count.</strong> 100 locs · 300 techs · $9K Y1.</li>
+        <li><strong>Seasonal regional variance.</strong> Sunbelt year-round; northern markets seasonal.</li>
+        <li><strong>Specialty equipment tracking.</strong> Sprinkler heads, valves, controllers — inventory complexity.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="persona-section">
+    <div class="section-head">Persona Map</div>
+    <table class="persona-table">
+      <thead><tr><th style="min-width:200px">Name &amp; Role</th><th>Why they matter</th><th style="min-width:120px">Path</th></tr></thead>
+      <tbody>
+        <tr><td><div class="persona-name">Heather Todd</div><div class="brand-meta">Brand President · Conserva (Richmond VA)</div></td><td>30+ years franchise DNA. Lives near Empower HQ. Operator-language fluent.</td><td><span class="persona-warm">★ LinkedIn warm</span></td></tr>
+        <tr><td><div class="persona-name">Scott Zide</div><div class="brand-meta">CEO · Empower</div></td><td>Co-founded OLB. Conserva is in the family.</td><td><span class="persona-warm">★ Convention</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="events-section">
+    <div class="section-head">Events to engage</div>
+    <div class="event-row"><div class="event-date">Feb (annual)</div><div><div class="event-name">Ignite Conference (Richmond)</div><div class="event-meta">Empower flagship.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual (Nov)</div><div><div class="event-name">Irrigation Show (IA)</div><div class="event-meta">Irrigation Association annual. Vendor showcase.</div></div></div>
+    <div class="event-row"><div class="event-date">Oct (annual)</div><div><div class="event-name">GIE+EXPO Louisville</div><div class="event-meta">Outdoor industry expo.</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ KOALA INSULATION (T5) ═══════════════ -->
+<section class="section" id="brand-koala">
+  <span class="brand-back" onclick="showSection('matrix')">← Back to Matrix</span>
+  <div class="brand-header">
+    <div class="brand-eyebrow">Empower Brands · Track 2 · Brand #37 · T5 NorthStar · Scott Marr cohort · Cory Lyons (shared with Wallaby) · 395+ franchisees</div>
+    <h2 class="brand-title">Koala Insulation</h2>
+    <div class="brand-subtitle">Spray foam &amp; insulation services · Scott Marr cohort · 395+ franchisees · Cory Lyons shared brand pres with Wallaby Windows</div>
+    <div class="brand-stats">
+      <div><div class="brand-stat-label">Locations</div><div class="brand-stat-value">100 (per matrix · 395+ franchisees per CRM)</div></div>
+      <div><div class="brand-stat-label">Techs / Loc</div><div class="brand-stat-value">4</div></div>
+      <div><div class="brand-stat-label">Total / Engageable</div><div class="brand-stat-value">400 / 400</div></div>
+      <div><div class="brand-stat-label">Y1 ARR @ 10%</div><div class="brand-stat-value">$12K</div></div>
+      <div><div class="brand-stat-label">Brand President</div><div class="brand-stat-value">Cory Lyons (also Wallaby)</div></div>
+      <div><div class="brand-stat-label">Score · Tier</div><div class="brand-stat-value">61 · T5</div></div>
+    </div>
+  </div>
+
+  <div class="my-read">
+    <div class="my-read-label">My Read</div>
+    <div class="my-read-headline">Koala has 395+ franchisees per CRM intel — significantly more operators than the matrix's 100-location estimate suggests. Cory Lyons covers Koala alongside Wallaby — same paired-brand play.</div>
+    <div class="my-read-body">
+      <p>Koala Insulation has 395+ franchisees per CRM intelligence — that's a much larger franchisee count than typical for a brand sitting at 100 locations on the matrix. The discrepancy likely means many Koala franchisees own multi-territory operations (one franchisee, multiple locations) or the matrix locs estimate needs refresh. Either way, Koala has substantially more operators than the matrix's tech-count estimate captures.</p>
+      <p>Insulation is project-based work — discovery → quote → install → cleanup. Spray foam jobs are specialty equipment-heavy (foam trucks, mixing equipment, PPE). Each job typically 4-8 hours of crew time. ServiceBridge handles project workflow well. ServiceMinder is the Scott Marr cohort default. Cory Lyons covers both Wallaby + Koala — paired-brand approach, same as Wallaby readiness.</p>
+    </div>
+  </div>
+
+  <div class="dim-grid">
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Greenfield Posture</div><span class="dim-flag dim-flag-caution">Caution</span></div><div class="dim-narrative">Not ST-mandated. ServiceMinder default per Scott Marr cohort. Engageable, displacement motion.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Persona Access</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Cory Lyons (Brand Pres, also Wallaby). Same paired-brand decision-maker. Scott Zide CEO. Ignite Conference.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Commercial / Consumer Mix</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Mixed — residential (homeowner energy upgrades) + commercial (multi-family, light commercial buildings). ServiceBridge fits both.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">BPO in place</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">QuickBooks already deployed</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Typical QB users. Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Events attended</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Ignite Conference. SPFA (Spray Polyurethane Foam Alliance) annual. ICAA (Insulation Contractors Association of America). Energy efficiency vendor events.</div></div>
+  </div>
+
+  <div class="lc-grid">
+    <div class="lc-card leverage">
+      <div class="lc-head">What we'd leverage</div>
+      <ul class="lc-list">
+        <li><strong>Cory Lyons covers Wallaby + Koala.</strong> Single conversation, two brands.</li>
+        <li><strong>395+ franchisees per CRM.</strong> Larger operator base than matrix suggests.</li>
+        <li><strong>Project-based insulation work.</strong> ServiceBridge commercial workflow fit.</li>
+        <li><strong>ServiceMinder $206/mo.</strong> Public-pricing depth-vs-cost positioning.</li>
+        <li><strong>Energy-efficiency tailwind.</strong> Insulation demand is structurally growing — franchisees scaling.</li>
+      </ul>
+    </div>
+    <div class="lc-card challenges">
+      <div class="lc-head">What we'd challenge</div>
+      <ul class="lc-list">
+        <li><strong>ServiceMinder displacement.</strong> Installed.</li>
+        <li><strong>Specialty equipment tracking.</strong> Foam trucks, mixing equipment — inventory complexity.</li>
+        <li><strong>Regulatory documentation.</strong> Energy code compliance varies by state.</li>
+        <li><strong>Brand still scaling.</strong> Workflow norms still being set — both opportunity and risk.</li>
+        <li><strong>Lyons covers 2 brands.</strong> Attention split.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="persona-section">
+    <div class="section-head">Persona Map</div>
+    <table class="persona-table">
+      <thead><tr><th style="min-width:200px">Name &amp; Role</th><th>Why they matter</th><th style="min-width:120px">Path</th></tr></thead>
+      <tbody>
+        <tr><td><div class="persona-name">Cory Lyons</div><div class="brand-meta">Brand President · Koala Insulation + Wallaby Windows</div></td><td>One conversation, two brands.</td><td><span class="persona-warm">★ LinkedIn warm</span></td></tr>
+        <tr><td><div class="persona-name">Scott Zide</div><div class="brand-meta">CEO · Empower</div></td><td>Champions emerging brands.</td><td><span class="persona-warm">★ Convention</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="events-section">
+    <div class="section-head">Events to engage</div>
+    <div class="event-row"><div class="event-date">Feb (annual)</div><div><div class="event-name">Ignite Conference (Richmond)</div><div class="event-meta">Empower flagship.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual (Feb)</div><div><div class="event-name">SPFA Conference</div><div class="event-meta">Spray Polyurethane Foam Alliance.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual</div><div><div class="event-name">ICAA Convention</div><div class="event-meta">Insulation Contractors Association of America.</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ OLP (T5) ═══════════════ -->
+<section class="section" id="brand-olp">
+  <span class="brand-back" onclick="showSection('matrix')">← Back to Matrix</span>
+  <div class="brand-header">
+    <div class="brand-eyebrow">Empower Brands · Track 2 · Brand #38 · T5 NorthStar · OLB legacy · CEO ORIGIN BRAND</div>
+    <h2 class="brand-title">Outdoor Lighting Perspectives (OLP)</h2>
+    <div class="brand-subtitle">Outdoor lighting design &amp; installation · OLB legacy cohort · Rich Young (Brand President) · Scott Zide's ORIGIN brand (was OLP franchisee in St. Louis)</div>
+    <div class="brand-stats">
+      <div><div class="brand-stat-label">Locations</div><div class="brand-stat-value">150</div></div>
+      <div><div class="brand-stat-label">Techs / Loc</div><div class="brand-stat-value">3</div></div>
+      <div><div class="brand-stat-label">Total / Engageable</div><div class="brand-stat-value">450 / 450</div></div>
+      <div><div class="brand-stat-label">Y1 ARR @ 10%</div><div class="brand-stat-value">$13.5K</div></div>
+      <div><div class="brand-stat-label">Brand President</div><div class="brand-stat-value">Rich Young</div></div>
+      <div><div class="brand-stat-label">Special context</div><div class="brand-stat-value">Scott Zide CEO origin brand</div></div>
+      <div><div class="brand-stat-label">Score · Tier</div><div class="brand-stat-value">61 · T5</div></div>
+    </div>
+  </div>
+
+  <div class="my-read">
+    <div class="my-read-label">My Read</div>
+    <div class="my-read-headline">OLP is Scott Zide's origin brand — he was an OLP franchisee in St. Louis with his wife Erin before becoming Director of Franchise Operations, eventually Empower CEO. Wins here are emotional credibility wins for Zide.</div>
+    <div class="my-read-body">
+      <p>This is the brand where Empower CEO Scott Zide started his franchising career. He and his wife Erin opened the OLP franchise in St. Louis as owner-operators. Zide was successful enough as a franchisee that he was recruited to corporate as Director of Franchise Operations in Charlotte NC, then eventually became VP, then co-founded Outdoor Living Brands in 2008, then became CEO of Empower in March 2022 after the MidOcean integration. OLP is family for Zide. Wins here aren't just business wins — they're personal credibility wins. He'll champion ServiceBridge inside OLP because he can see his own franchisee journey in the franchisees we'd serve.</p>
+      <p>OLP is outdoor lighting design and installation — landscape lighting, architectural lighting, holiday lighting installations. Project-based with seasonal recurrence (Q4 holiday lighting season is huge). 150 locations · 450 techs. ServiceMinder likely as OLB legacy cohort default. ServiceBridge fits the project workflow plus seasonal scaling.</p>
+    </div>
+  </div>
+
+  <div class="dim-grid">
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Greenfield Posture</div><span class="dim-flag dim-flag-caution">Caution</span></div><div class="dim-narrative">Not ST-mandated. ServiceMinder likely as OLB legacy default. Engageable, displacement motion.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Persona Access</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Rich Young (Brand President). Scott Zide CEO has personal emotional ties — strongest internal Empower champion possible.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Commercial / Consumer Mix</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Mixed — residential landscape lighting + commercial (HOA, restaurant, hospitality). ServiceBridge fits both. Holiday lighting = seasonal volume spike.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">BPO in place</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">QuickBooks already deployed</div><span class="dim-flag dim-flag-unknown">Unknown</span></div><div class="dim-narrative">Typical QB users. Validate.</div></div>
+    <div class="dim-card"><div class="dim-card-head"><div class="dim-name">Events attended</div><span class="dim-flag dim-flag-strong">Strong</span></div><div class="dim-narrative">Ignite Conference. ALI (Association of Outdoor Lighting Professionals). NALP ELEVATE. Holiday lighting trade events.</div></div>
+  </div>
+
+  <div class="lc-grid">
+    <div class="lc-card leverage">
+      <div class="lc-head">What we'd leverage</div>
+      <ul class="lc-list">
+        <li><strong>Scott Zide's personal OLP origin.</strong> CEO emotional champion built in.</li>
+        <li><strong>Rich Young accessible.</strong> Brand-level decision authority.</li>
+        <li><strong>Holiday lighting seasonal spike.</strong> Q4 = critical revenue concentration. Software efficiency matters most when volume hits.</li>
+        <li><strong>OLB legacy wedge.</strong> Wins here propagate across Archadeck + Conserva + Superior Fence.</li>
+        <li><strong>Mixed res/commercial recurring.</strong> Multiple workflow types ServiceBridge handles.</li>
+      </ul>
+    </div>
+    <div class="lc-card challenges">
+      <div class="lc-head">What we'd challenge</div>
+      <ul class="lc-list">
+        <li><strong>ServiceMinder displacement.</strong> Likely installed.</li>
+        <li><strong>Specialty lighting design tools.</strong> AGi32, Visual Lighting target architectural lighting design specifically.</li>
+        <li><strong>Holiday installer certification workflows.</strong> Seasonal contractor certification — software documentation.</li>
+        <li><strong>Smaller location count.</strong> 150 locs · 450 techs · $13.5K Y1.</li>
+        <li><strong>Seasonal headcount fluctuations.</strong> Q4 surge crews — license model flex.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="persona-section">
+    <div class="section-head">Persona Map</div>
+    <table class="persona-table">
+      <thead><tr><th style="min-width:200px">Name &amp; Role</th><th>Why they matter</th><th style="min-width:120px">Path</th></tr></thead>
+      <tbody>
+        <tr><td><div class="persona-name">Rich Young</div><div class="brand-meta">Brand President · OLP</div></td><td>Brand-level decision-maker.</td><td><span class="persona-validate">LinkedIn primary</span></td></tr>
+        <tr><td><div class="persona-name">Scott Zide</div><div class="brand-meta">CEO · Empower (OLP origin)</div></td><td>Personal emotional ties to OLP — strongest internal champion possible.</td><td><span class="persona-warm">★ Convention</span></td></tr>
+        <tr><td><div class="persona-name">Erin Zide</div><div class="brand-meta">Scott's wife · Co-operated OLP St. Louis franchise</div></td><td>Original franchisee partner. Marketing/community connections may run through her.</td><td><span class="persona-validate">Field outreach</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="events-section">
+    <div class="section-head">Events to engage</div>
+    <div class="event-row"><div class="event-date">Feb (annual)</div><div><div class="event-name">Ignite Conference (Richmond)</div><div class="event-meta">Empower flagship.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual</div><div><div class="event-name">ALI Conference</div><div class="event-meta">Association of Outdoor Lighting Professionals.</div></div></div>
+    <div class="event-row"><div class="event-date">Annual</div><div><div class="event-name">Holiday lighting trade events</div><div class="event-meta">Q4 lighting industry vendor opportunities.</div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  Velocity GTM Co LLC · ServiceBridge GTM Engagement · Empower Brands Track 2 Readiness v1.0 · Aligned to Track 2 P1+P2 Brand Priority Matrix v2 · CRM v15.6 · May 1, 2026 · Mike Flynt
+</footer>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  const target = document.getElementById(id);
+  if (target) target.classList.add('active');
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => {
+    if (t.dataset.target === id) t.classList.add('active');
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.querySelectorAll('.nav-tab').forEach(t => {
+  t.addEventListener('click', () => showSection(t.dataset.target));
+});
+</script>
+
+</body>
+</html>
