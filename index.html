@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ServiceBridge GTM Control Book</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:14px;background:#f0f2f5;color:#111;padding:20px}
+.wrap{max-width:900px;margin:0 auto;background:#fff;border-radius:10px;border:1px solid #ddd;overflow:hidden}
+header{background:#1A2B3C;color:#fff;padding:20px 24px}
+header h1{font-size:20px;margin-bottom:4px}
+header .sub{font-size:12px;color:rgba(255,255,255,0.6)}
+.gate{padding:40px 24px;text-align:center}
+.gate input{padding:10px 14px;border:1px solid #ccc;border-radius:6px;font-size:14px;width:240px;margin-right:8px}
+.gate button{padding:10px 20px;background:#185FA5;color:#fff;border:0;border-radius:6px;font-size:14px;cursor:pointer}
+.gate .err{color:#b91c1c;margin-top:12px;font-size:12px}
+.list{padding:8px}
+.section-header{padding:14px 20px 10px 20px;font-size:11px;font-weight:700;color:#185FA5;text-transform:uppercase;letter-spacing:0.8px;background:#fafbfc;border-top:1px solid #eee;border-bottom:1px solid #eee;margin-top:8px}
+.section-header:first-child{margin-top:0;border-top:0}
+.subsection-header{padding:10px 20px 8px 20px;font-size:10px;font-weight:600;color:#1A2B3C;text-transform:uppercase;letter-spacing:0.6px;background:#fff;border-bottom:1px dotted #e0e0e0;margin-top:4px}
+.matrix-card{display:block;padding:18px 20px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;background:linear-gradient(to right,#f7faff,#fff);border-left:4px solid #185FA5}
+.matrix-card:hover{background:#eef4fb}
+.matrix-card .cn{font-weight:700;font-size:16px;margin-bottom:4px;color:#1A2B3C}
+.card{display:block;padding:16px 20px;border-bottom:1px solid #eee;text-decoration:none;color:inherit}
+.card:hover{background:#f5f7fa}
+.brand-card{display:block;padding:12px 20px 12px 36px;border-bottom:1px solid #f0f0f0;text-decoration:none;color:inherit;background:#fafbfc}
+.brand-card:hover{background:#f0f4f9}
+.brand-card .cn{font-weight:600;font-size:13px;margin-bottom:3px;color:#1A2B3C}
+.brand-card .cs{font-size:11px;color:#888;margin-bottom:4px}
+.brand-card .cm{font-size:11px;color:#666;line-height:1.4}
+.cn{font-weight:600;font-size:15px;margin-bottom:4px;color:#1A2B3C}
+.cs{font-size:12px;color:#777;margin-bottom:6px}
+.cm{font-size:12px;color:#555;line-height:1.5}
+.icon{display:inline-block;margin-right:8px}
+.new{display:inline-block;background:#15803D;color:#fff;font-size:10px;padding:2px 6px;border-radius:3px;margin-left:8px;font-weight:600}
+.updated{display:inline-block;background:#B8860B;color:#fff;font-size:10px;padding:2px 6px;border-radius:3px;margin-left:8px;font-weight:600}
+.northstar{display:inline-block;background:#0B3D6B;color:#fff;font-size:10px;padding:2px 6px;border-radius:3px;margin-left:8px;font-weight:600}
+.pending{padding:8px 20px 10px 36px;font-size:11px;color:#999;font-style:italic;border-bottom:1px solid #f0f0f0;background:#fafbfc}
+footer{padding:16px 24px;border-top:1px solid #eee;font-size:11px;color:#888;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>ServiceBridge GTM Control Book</h1>
+<div class="sub">Velocity GTM Co &middot; Michael M. Flynt Jr. &middot; Updated May 1, 2026</div>
+</header>
+
+<div id="gate" class="gate">
+<input type="password" id="pw" placeholder="Enter passcode" />
+<button onclick="checkPw()">Unlock</button>
+<div class="err" id="err"></div>
+</div>
+
+<div id="content" style="display:none">
+<div style="padding:12px 20px;background:#f5f7fa;font-size:12px;color:#555;border-bottom:1px solid #eee">
+Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference sets now populated (74 brand readiness packages total). Click any item to download.
+</div>
+
+<div class="list">
+
+<!-- ============================================================ -->
+<!-- TRACK 1 MATRIX + FRANCHISOR READINESS PACKAGES               -->
+<!-- ============================================================ -->
+
+<div class="section-header">Track 1 &middot; Franchisor Priority Matrix &amp; Readiness Packages</div>
+
+<a class="matrix-card" href="docs/Track_1_P1_P2_Franchisor_Priority_Matrix_v2.docx">
+<div class="cn"><span class="icon">&#127919;</span>Track 1 P1+P2 Franchisor Priority Matrix<span class="updated">v2</span></div>
+<div class="cs">DOCX &middot; v2 &middot; Apr 30 &middot; sized by engageable techs</div>
+<div class="cm">9 priority targets ranked by V2 score with engageable techs (excluding confirmed competitive FSM mandates). Greenfield-first strategic posture. WHY RANKED narrative per franchisor. P1 totals: 11,471 locs &middot; 32,884 engageable of 44,961 techs (73%) &middot; $987K Y1@10%. Empower (100% engageable) is the largest single Y1@10% target.</div>
+</a>
+
+<div class="subsection-header">Franchisor Readiness Packages &middot; ordered by V2 priority</div>
+
+<a class="card" href="docs/Neighborly_Readiness_Execution.docx">
+<div class="cn"><span class="icon">&#127919;</span>Neighborly &mdash; Readiness &amp; Execution<span class="updated">UPDATED</span></div>
+<div class="cs">DOCX &middot; 35 KB &middot; Apr 28 &middot; P1 #1 PE-GATED &middot; Score 76.5</div>
+<div class="cm">19 brands, 5,500+ franchises. KKR warm path to Gernburd/Brandon. Smart Fleet/Azuga telematics conflict. GPO: Yes &mdash; ProTradeNet ($107M to franchisees in 2023).</div>
+</a>
+
+<a class="card" href="docs/Authority_Brands_Readiness_Execution.docx">
+<div class="cn"><span class="icon">&#127919;</span>Authority Brands &mdash; Readiness &amp; Execution<span class="updated">UPDATED</span></div>
+<div class="cs">DOCX &middot; 35 KB &middot; Apr 28 &middot; P1 #2 DISPLACEMENT-READY &middot; Score 68.5</div>
+<div class="cm">15 brands, 1,000+ owners, $1B+ revenue. 246 new franchisees in 2025. ServiceTitan partnership = displacement play. New CEO + CFO timing window. GPO: Yes &mdash; BuyMax.</div>
+</a>
+
+<a class="card" href="docs/Empower_Brands_Readiness_Execution.docx">
+<div class="cn"><span class="icon">&#127919;</span>Empower Brands &mdash; Readiness &amp; Execution<span class="updated">UPDATED</span></div>
+<div class="cs">DOCX &middot; 35 KB &middot; Apr 28 &middot; P1 #3 GREENFIELD-LED &middot; Score 66.2</div>
+<div class="cm">10 brands. ServiceMinder dominant incumbent. Bumble Roofing wedge entry. Scott Marr cohort path to Koala/Wallaby/Canopy. GPO: No.</div>
+</a>
+
+<a class="card" href="docs/ResiBrands_Readiness_Execution.docx">
+<div class="cn"><span class="icon">&#127919;</span>ResiBrands &mdash; Readiness &amp; Execution<span class="updated">UPDATED</span></div>
+<div class="cs">DOCX &middot; 30 KB &middot; Apr 28 &middot; P1 #4 FAST-CYCLE &middot; Score 60.2</div>
+<div class="cm">5 brands. Kevin Luu founder. Codie Sanchez investor. Smaller footprint, faster decision velocity. GPO: No.</div>
+</a>
+
+<a class="card" href="docs/Five_Star_Franchising_Readiness_Execution.docx">
+<div class="cn"><span class="icon">&#127919;</span>Five Star Franchising &mdash; Readiness &amp; Execution<span class="updated">UPDATED</span></div>
+<div class="cs">DOCX &middot; 30 KB &middot; Apr 28 &middot; P1 #5 WEDGE-BRAND &middot; Score 59.2</div>
+<div class="cm">5 brands. GPSI overlap exists (warm path). Princeton Equity backing. GPO: Yes &mdash; Five Star Buying Group.</div>
+</a>
+
+<a class="card" href="docs/PSB_Readiness_Execution.docx">
+<div class="cn"><span class="icon">&#127919;</span>Premium Service Brands &mdash; Readiness &amp; Execution<span class="updated">UPDATED</span></div>
+<div class="cs">DOCX &middot; 32 KB &middot; Apr 28 &middot; P1 #6 GREENFIELD-OPEN &middot; Score 59.0</div>
+<div class="cm">9 brands. RooterMan-dominated (720-750 of network). Pilot FSM opportunity. Paul Flick CEO. GPO: No.</div>
+</a>
+
+<a class="card" href="docs/HomeFront_Brands_Readiness_Execution.docx">
+<div class="cn"><span class="icon">&#127919;</span>HomeFront Brands &mdash; Readiness &amp; Execution<span class="updated">UPDATED</span></div>
+<div class="cs">DOCX &middot; 29 KB &middot; Apr 28 &middot; P1 #7 MONITOR-MODE &middot; Score 44.0</div>
+<div class="cm">5 brands. Dudan Group family office. Q3/Q4 2026 reassessment posture. GPO: Yes &mdash; Vendor Advantage Program.</div>
+</a>
+
+<div class="subsection-header" style="background:#f7faff;color:#0B3D6B;border-left:4px solid #0B3D6B">P2 NorthStar Reference Set &middot; existing footprint &middot; conversion strategy, not active greenfield acquisition</div>
+
+<a class="card" href="docs/BELFOR_Readiness_Execution.docx">
+<div class="cn"><span class="icon">&#11088;</span>BELFOR Franchise Group &mdash; Readiness &amp; Execution<span class="northstar">NORTHSTAR</span></div>
+<div class="cs">DOCX &middot; Apr 28 &middot; P2 #1 DE-FACTO ANCHOR</div>
+<div class="cm">9,250 techs, 20+ brands. American Securities-owned. ServiceBridge de facto in HOODZ/DUCTZ at 94% each. Convert de facto into franchisor mandate before exit window. Doug Smith + Beth Toenies warm path.</div>
+</a>
+
+<a class="card" href="docs/Evive_Brands_Readiness_Execution.docx">
+<div class="cn"><span class="icon">&#11088;</span>Evive Brands &mdash; Readiness &amp; Execution<span class="northstar">NORTHSTAR</span></div>
+<div class="cs">DOCX &middot; Apr 28 &middot; P2 #2 GROWING ANCHOR</div>
+<div class="cm">1,100+ territories, 7 brands. Riverside-owned (formed 2023). Brothers Gutters at 43% under new SB contract. Maid Brigade (acquired 2024) is greenfield within Evive. Ryan Parsons CEO is the warmest P2 relationship.</div>
+</a>
+
+<a class="card" href="docs/Threshold_Brands_Readiness_Execution.docx">
+<div class="cn"><span class="icon">&#11088;</span>Threshold Brands &mdash; Readiness &amp; Execution<span class="northstar">NORTHSTAR</span></div>
+<div class="cs">DOCX &middot; Apr 28 &middot; P2 #3 AT-RISK ANCHOR</div>
+<div class="cm">10+ brands, ~1,000 territories. Riverside-owned (same parent as Evive). USA Insulation 75% SB but transitioning off. Ted DeMarino CEO + Billy Newby CFO &mdash; full leadership reset. Dual-track: defend USA Insulation, reset relationship for remaining brands.</div>
+</a>
+
+<!-- ============================================================ -->
+<!-- TRACK 2 MATRIX + BRAND READINESS PACKAGES                    -->
+<!-- ============================================================ -->
+
+<div class="section-header">Track 2 &middot; Brand Priority Matrix &amp; Readiness Packages</div>
+
+<a class="matrix-card" href="docs/Track_2_P1_P2_Brand_Priority_Matrix_v2.docx">
+<div class="cn"><span class="icon">&#128202;</span>Track 2 P1+P2 Brand Priority Matrix<span class="updated">v2</span></div>
+<div class="cs">DOCX &middot; v2 &middot; Apr 30 &middot; 78 brand corps</div>
+<div class="cm">78 brand corps across 10 parent franchisors organized by Track 1 priority. WHY RANKED column carries critical flags + verified engagement signals where captured. 14,019 locs &middot; 55,255 total / 43,178 engageable techs (78%). NorthStar markers on BELFOR T1/T2 brands flag P2 reference patterns vs active engagement targets.</div>
+</a>
+
+<div class="subsection-header">P1 #1 Neighborly &middot; 10 engageable brand packages &middot; score-ordered</div>
+
+<a class="brand-card" href="docs/Mr_Electric_nonST_Readiness.docx">
+<div class="cn">Mr. Electric (non-ST)<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 61 &middot; T5 &middot; Non-ST wedge subset &middot; 250 techs</div>
+<div class="cm">Engageable subset within ServiceTitan-mandated parent brand. Wedge play for eventual broader displacement. PE-gated engagement via KKR warm path.</div>
+</a>
+
+<a class="brand-card" href="docs/Aire_Serv_nonST_Readiness.docx">
+<div class="cn">Aire Serv (non-ST)<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 61 &middot; T5 &middot; Non-ST wedge subset &middot; 500 techs</div>
+<div class="cm">HVAC engageable subset. Strong vertical fit. Coordinate with sister-brand non-ST subsets through PE-gated pathway.</div>
+</a>
+
+<a class="brand-card" href="docs/Mosquito_Joe_nonST_Readiness.docx">
+<div class="cn">Mosquito Joe (non-ST)<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 49 &middot; T7 &middot; Non-ST wedge subset &middot; 240 techs</div>
+<div class="cm">Pest control engageable subset. Smallest non-ST footprint. Monitor mode unless PE-gated engagement opens broader Neighborly.</div>
+</a>
+
+<a class="brand-card" href="docs/Rainbow_Restoration_Readiness.docx">
+<div class="cn">Rainbow Restoration<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 44 &middot; T7 &middot; 1,650 techs &middot; largest engageable Neighborly</div>
+<div class="cm">Restoration vertical strong fit but parent context reduces velocity. Same vertical scores ~60 points higher at BELFOR. Xactimate coexistence story.</div>
+</a>
+
+<a class="brand-card" href="docs/Lawn_Pride_Readiness.docx">
+<div class="cn">Lawn Pride<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 29 &middot; T8 &middot; FieldRoutes/ST flag (unconfirmed)</div>
+<div class="cm">Lawn care vertical. Counts as engageable until FieldRoutes mandate confirmed. Monitor mode.</div>
+</a>
+
+<a class="brand-card" href="docs/Mosquito_Joe_Readiness.docx">
+<div class="cn">Mosquito Joe<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 29 &middot; T8 &middot; FieldRoutes/ST flag (unconfirmed)</div>
+<div class="cm">Larger pest network. Coordinate with Mosquito Joe (non-ST) carve-out engagement.</div>
+</a>
+
+<a class="brand-card" href="docs/Molly_Maid_Readiness.docx">
+<div class="cn">Molly Maid<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 26 &middot; T8 &middot; 1,344 techs &middot; largest by location count</div>
+<div class="cm">Cleaning vertical strong SB fit per HOODZ pattern. Largest Neighborly engageable footprint by locations (448). Highest strategic upside if PE-gated engagement opens.</div>
+</a>
+
+<a class="brand-card" href="docs/Window_Genie_Readiness.docx">
+<div class="cn">Window Genie<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 26 &middot; T8 &middot; mixed recurring + project + seasonal</div>
+<div class="cm">Mixed recurring + project work + seasonal holiday lighting. Dispatch complexity fits SB workflow.</div>
+</a>
+
+<a class="brand-card" href="docs/Precision_Door_Readiness.docx">
+<div class="cn">Precision Door Service<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 24 &middot; T8 &middot; project-heavy &middot; less recurring</div>
+<div class="cm">Garage door installation, repair, service. Project-heavy work reduces SB fit relative to recurring-route verticals.</div>
+</a>
+
+<a class="brand-card" href="docs/Neighborly_Other_Readiness.docx">
+<div class="cn">Neighborly (other brands)<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 24 &middot; T8 &middot; portfolio remainder placeholder</div>
+<div class="cm">Placeholder for ~7+ portfolio sub-brands not yet documented at brand-corp level. Per-brand validation required.</div>
+</a>
+
+<div class="subsection-header">P1 #2 Authority Brands &middot; 12 brand packages (9 engageable + 3 ST-locked) &middot; score-ordered</div>
+
+<a class="brand-card" href="docs/DRYmedic_Restoration_Readiness.docx">
+<div class="cn">DRYmedic Restoration Services<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 81 &middot; T3 LEAD PILOT &middot; 1,000 techs &middot; restoration vertical</div>
+<div class="cm">Highest-growth Authority brand 2024 (+17 franchisees, +26 territories). Reno Trades Brands Conference Apr 13&ndash;15 anchor. Steve Clemente (Trade Brands Pres, Dec 2025) under 6 months. HOODZ-pattern fit.</div>
+</a>
+
+<a class="brand-card" href="docs/STOP_Restoration_Readiness.docx">
+<div class="cn">STOP Restoration<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 81 &middot; T3 LEAD PILOT &middot; 750 techs &middot; restoration vertical</div>
+<div class="cm">Pair-engagement with DRYmedic at Reno conference. 'Service Team of Professionals' team-dispatch identity. Same Steve Clemente / Tij Bedi access.</div>
+</a>
+
+<a class="brand-card" href="docs/Mosquito_Squad_Readiness.docx">
+<div class="cn">Mosquito Squad<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 66 &middot; T5 NORTHSTAR &middot; 750 techs &middot; largest single brand by tech in T5</div>
+<div class="cm">Mosquito Squad Plus rebrand Jan 2025. 20-yr anniversary. Tom Swift EVP. Rob White (Monster Tree Pres, prior Mosquito Squad VP) is internal historical FieldRoutes validator.</div>
+</a>
+
+<a class="brand-card" href="docs/Lawn_Squad_Readiness.docx">
+<div class="cn">Lawn Squad<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 66 &middot; T5 NORTHSTAR &middot; 300 techs &middot; cleanest greenfield in portfolio</div>
+<div class="cm">Newest Authority brand (2023 launch as Weed Pro rebrand). Every franchisee in first 18 months. Recommended-from-day-one play.</div>
+</a>
+
+<a class="brand-card" href="docs/Cleaning_Authority_Readiness.docx">
+<div class="cn">The Cleaning Authority<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 63 &middot; T5 NORTHSTAR &middot; 900 techs &middot; founding Authority brand</div>
+<div class="cm">Brand Authority was built around (2017). Katie Clark Dills (Brand Pres) — former 7-year TCA franchisee. HOODZ-analog cleaning vertical. Most accessible Authority brand pres.</div>
+</a>
+
+<a class="brand-card" href="docs/Screenmobile_Readiness.docx">
+<div class="cn">Screenmobile<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 63 &middot; T5 NORTHSTAR &middot; 300 techs &middot; cross-brand reference value</div>
+<div class="cm">Clint Rowley (Pres 2024) — prior ASP + Monster Tree experience inside Authority. Cross-brand DNA. Convention Jan 25&ndash;27 Vegas. Walker family founders still involved.</div>
+</a>
+
+<a class="brand-card" href="docs/ASP_Swimming_Pool_Readiness.docx">
+<div class="cn">ASP &mdash; America's Swimming Pool Co.<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 61 &middot; T5 NORTHSTAR &middot; 450 techs &middot; recurring weekly route</div>
+<div class="cm">Stewart Vernon (Founder, now Authority EVP Emerging Brands) is warmest internal path. Construction Division 2024 expanded commercial footprint. Jimmie Meece (Brand Pres) is former franchisee.</div>
+</a>
+
+<a class="brand-card" href="docs/Junkluggers_Readiness.docx">
+<div class="cn">The Junkluggers<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 61 &middot; T5 NORTHSTAR &middot; 450 techs &middot; eco junk removal</div>
+<div class="cm">Justin Waltz (Pres Sept 2024) started as 1-800-GOT-JUNK truck driver in 2005. 'Four pillars' franchisee-first framework. Josh Cohen (Founder) still involved.</div>
+</a>
+
+<a class="brand-card" href="docs/Monster_Tree_Service_Readiness.docx">
+<div class="cn">Monster Tree Service<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 61 &middot; T5 NORTHSTAR &middot; 600 techs &middot; &#9733; HIGHEST-LEVERAGE TRACK 2 CONTACT</div>
+<div class="cm">Rob White (Pres Nov 2023) was prior Brand President at Rainbow Restoration (Neighborly) + VP Mosquito Squad. Lived the ServiceTitan partnership inside Neighborly. Cross-network knowledge unmatched in Track 2. Conference Jan 25&ndash;27 Vegas.</div>
+</a>
+
+<a class="brand-card" href="docs/Benjamin_Franklin_Plumbing_Readiness.docx">
+<div class="cn">Benjamin Franklin Plumbing<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 78 &middot; T4 ST-LOCKED &middot; 1,815 techs (excluded) &middot; &#128274; placeholder</div>
+<div class="cm">ServiceTitan partnership Sep 2024. Engagement not recommended. Watch room only — Reno conference field intelligence + Authority Convention corporate signal. Watch ST pricing increases for revolt window.</div>
+</a>
+
+<a class="brand-card" href="docs/Mister_Sparky_Readiness.docx">
+<div class="cn">Mister Sparky Electric<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 78 &middot; T4 ST-LOCKED &middot; 1,095 techs (excluded) &middot; &#128274; placeholder</div>
+<div class="cm">ServiceTitan partnership Sep 2024. Engagement not recommended. Watch room only.</div>
+</a>
+
+<a class="brand-card" href="docs/One_Hour_Heating_Readiness.docx">
+<div class="cn">One Hour Heating &amp; Air Conditioning<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 58 &middot; T6 ST-LOCKED &middot; 1,750 techs (excluded) &middot; &#128274; placeholder</div>
+<div class="cm">ServiceTitan partnership Sep 2024. Engagement not recommended. Watch room only.</div>
+</a>
+
+<div class="subsection-header">P1 #3 Empower Brands &middot; 10 engageable brand packages &middot; score-ordered</div>
+
+<a class="brand-card" href="docs/FRSTeam_Readiness.docx">
+<div class="cn">FRSTeam<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 81 &middot; T3 LEAD PILOT &middot; 500 techs &middot; contents/textile restoration</div>
+<div class="cm">Restoration entry into Empower. Holly Murry (Brand Pres) 20+ yrs FRSTeam, helped launch international franchise 2006 — longest-tenured brand pres in Empower. HOODZ-pattern fit. Ignite Conference (Feb Richmond) anchor.</div>
+</a>
+
+<a class="brand-card" href="docs/Bumble_Roofing_Readiness.docx">
+<div class="cn">Bumble Roofing<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 71 &middot; T4 NORTHSTAR &middot; 500 techs &middot; Scott Marr cohort</div>
+<div class="cm">David Bitan (Founder) — 'client service and technology' core positioning. Tech-forward founder DNA. Caleb Shoup (NW Arkansas + Woodlands TX) Franchisee of the Year 2026. ServiceMinder $206/mo displaceable.</div>
+</a>
+
+<a class="brand-card" href="docs/Superior_Fence_Readiness.docx">
+<div class="cn">Superior Fence &amp; Rail<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 71 &middot; T4 NORTHSTAR &middot; 500 techs &middot; OLB legacy &middot; founder retained</div>
+<div class="cm">Zach Peyton (Co-founder, retained as President after 2022 OLB acquisition). Fast-growth ramp signal at acquisition. Project workflow fit. Mixed res/commercial.</div>
+</a>
+
+<a class="brand-card" href="docs/Canopy_Lawn_Care_Readiness.docx">
+<div class="cn">Canopy Lawn Care<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 66 &middot; T5 NORTHSTAR &middot; 400 techs &middot; Empower incubation backed</div>
+<div class="cm">Recurring lawn-care routes — ServiceBridge sweet spot. ServiceMinder confirmed. 5 Franchisee-of-the-Year winners 2026 across Lexington, Miami, Dallas, Pocatello, N. Dallas. Brand-pres TBV.</div>
+</a>
+
+<a class="brand-card" href="docs/JAN_PRO_Readiness.docx">
+<div class="cn">JAN-PRO<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 63 &middot; T5 CAUTION &middot; 4,000 techs &middot; #1 Franchise 500 commercial cleaning 2026</div>
+<div class="cm">Largest Track 2 brand by tech count. B2B commercial + master franchisee model + proprietary tracker = parallel separate engagement track recommended. $120K Y1 ARR opportunity but different sales motion.</div>
+</a>
+
+<a class="brand-card" href="docs/Wallaby_Windows_Readiness.docx">
+<div class="cn">Wallaby Windows<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 63 &middot; T5 NORTHSTAR &middot; 300 techs &middot; Cory Lyons paired w/ Koala</div>
+<div class="cm">Cory Lyons covers Wallaby + Koala. One conversation, two brands. Mixed recurring (window cleaning) + project (replacement). Scott Marr cohort, ServiceMinder default.</div>
+</a>
+
+<a class="brand-card" href="docs/Archadeck_Readiness.docx">
+<div class="cn">Archadeck Outdoor Living<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 61 &middot; T5 NORTHSTAR &middot; 400 techs &middot; OLB legacy &middot; 40+ yrs operating</div>
+<div class="cm">Mike Reeder (Pres since 2016) — former 15-year Archadeck franchisee Columbus OH. Most established brand in Empower. Project-based outdoor work fits ServiceBridge commercial workflows. Zide co-founded OLB 2008 — Archadeck is family.</div>
+</a>
+
+<a class="brand-card" href="docs/Conserva_Irrigation_Readiness.docx">
+<div class="cn">Conserva Irrigation<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 61 &middot; T5 NORTHSTAR &middot; 300 techs &middot; OLB legacy &middot; ServiceMinder confirmed</div>
+<div class="cm">Heather Todd (Brand Pres, 30+ yrs franchise DNA — parents launched their training/consulting franchise when she was a child). Lives in Richmond VA — Empower HQ proximity.</div>
+</a>
+
+<a class="brand-card" href="docs/Koala_Insulation_Readiness.docx">
+<div class="cn">Koala Insulation<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 61 &middot; T5 NORTHSTAR &middot; 400 techs &middot; 395+ franchisees per CRM</div>
+<div class="cm">Cory Lyons (Pres) — paired with Wallaby. 395+ franchisees per CRM intel — larger operator base than matrix shows. Project-based spray foam work. Scott Marr cohort.</div>
+</a>
+
+<a class="brand-card" href="docs/Outdoor_Lighting_Perspectives_Readiness.docx">
+<div class="cn">Outdoor Lighting Perspectives (OLP)<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 61 &middot; T5 NORTHSTAR &middot; 450 techs &middot; OLB legacy &middot; &#9733; CEO origin brand</div>
+<div class="cm">Scott Zide's origin brand — was OLP franchisee in St. Louis with wife Erin before going corporate. CEO emotional champion built in. Rich Young (Brand Pres). Q4 holiday lighting seasonal spike.</div>
+</a>
+
+<div class="subsection-header">P1 #4 ResiBrands &middot; 5 engageable brand packages &middot; score-ordered</div>
+
+<a class="brand-card" href="docs/That_1_Painter_Readiness.docx">
+<div class="cn">That 1 Painter<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 80 &middot; T3 LEAD WEDGE &middot; 1,520 techs &middot; founder brand</div>
+<div class="cm">Steven Montgomery (CEO ResiBrands + Founder/Brand Pres T1P) wears both hats — single decision-maker. Founded 2011, 380+ units. Largest ResiBrands brand. Codie Sanchez Co-Owner provides institutional-raise angle.</div>
+</a>
+
+<a class="brand-card" href="docs/Pinks_Window_Services_Readiness.docx">
+<div class="cn">Pink's Window Services<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 70 &middot; T4 NORTHSTAR &middot; 300 techs &middot; founder co-brand</div>
+<div class="cm">Joined ResiBrands June 2023. 95+ franchise owners launched by Dec 2025 — fastest growth in portfolio. Co-founders Brandon Downer + Carter Smith retained operationally. Recurring window cleaning routes.</div>
+</a>
+
+<a class="brand-card" href="docs/Action_Exteriors_Readiness.docx">
+<div class="cn">Action Exteriors<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 65 &middot; T5 NORTHSTAR &middot; 300 techs &middot; roofing/siding</div>
+<div class="cm">Residential roofing/siding. Cross-brand bundle with T1P + Pink's (same exterior customer). Storm-season project work. Insurance billing complexity.</div>
+</a>
+
+<a class="brand-card" href="docs/Montys_Handyman_Readiness.docx">
+<div class="cn">Monty's Handyman<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 65 &middot; T5 NORTHSTAR &middot; 300 techs &middot; dispatch density</div>
+<div class="cm">ResiBrands' 4th brand. Multi-trade dispatch — small jobs, fast cycles, customer-text-heavy. ServiceBridge core fit. Modern challenger to Mr. Handyman positioning.</div>
+</a>
+
+<a class="brand-card" href="docs/Garage_Up_Readiness.docx">
+<div class="cn">Garage Up<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 65 &middot; T5 NORTHSTAR &middot; 200 techs &middot; ResiBrands origin brand</div>
+<div class="cm">Co-founded by Steven Montgomery + Allan Alarcon 2021 — the brand that launched ResiBrands. Pure greenfield (minimal SaaS competition in garage services). Highest founder engagement leverage.</div>
+</a>
+
+<div class="subsection-header">P1 #5 Five Star Franchising &middot; 5 engageable brand packages &middot; score-ordered</div>
+
+<a class="brand-card" href="docs/Mosquito_Shield_Readiness.docx">
+<div class="cn">Mosquito Shield<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 80 &middot; T3 LEAD WEDGE &middot; 1,200 techs &middot; &#9733; HIGHEST GPSI BUNDLE FIT IN P1</div>
+<div class="cm">400+ territories. Acquired 2022. Michael Moorhouse Brand Pres. David Briggs (Founder) advisor. Top pest control franchise per Entrepreneur 2023, 2024, 2025. ProNexis above + ServiceBridge below = clean architecture. Recurring barrier-spray routes = textbook GPSI + ServiceBridge bundle.</div>
+</a>
+
+<a class="brand-card" href="docs/Bio_One_Readiness.docx">
+<div class="cn">Bio-One<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 70 &middot; T4 NORTHSTAR &middot; 450 techs &middot; biohazard dispatch</div>
+<div class="cm">Crime scene + hoarding + trauma cleanup. Emergency dispatch model. Veterans-friendly franchise. Chain-of-custody documentation = ServiceBridge differentiator. Public-sector contracts (police/fire).</div>
+</a>
+
+<a class="brand-card" href="docs/1800_Packouts_Readiness.docx">
+<div class="cn">1-800-Packouts<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 70 &middot; T4 NORTHSTAR &middot; 800 techs &middot; HOODZ-pattern fit</div>
+<div class="cm">Contents pack-out restoration. Same vertical as BELFOR Blue Kangaroo Packoutz (T1) and FRSTeam at Empower (T3). HOODZ pattern applies. Insurance-paid revenue. Photo/documentation native ServiceBridge strength.</div>
+</a>
+
+<a class="brand-card" href="docs/Five_Star_Bath_Solutions_Readiness.docx">
+<div class="cn">Five Star Bath Solutions<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 65 &middot; T5 NORTHSTAR &middot; 1,200 techs &middot; 2026 Brand of the Year</div>
+<div class="cm">~400 locations. Dean Hartley = 2026 Brand President of the Year (also runs new Five Star Flooring — cross-brand wedge). Dominic Ortman = 2026 VP of the Year. Bath remodel project workflow + just-in-time supply chain coordination.</div>
+</a>
+
+<a class="brand-card" href="docs/Gotcha_Covered_Readiness.docx">
+<div class="cn">Gotcha Covered<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 60 &middot; T5 NORTHSTAR &middot; 300 techs &middot; window treatments</div>
+<div class="cm">Custom blinds/draperies/shutters/smart home. 99% positive customer reviews. Top Low-Cost Franchise per Entrepreneur 2026. Recommended position: complementary brand in broader Five Star portfolio play, not lead brand.</div>
+</a>
+
+<div class="subsection-header">P1 #6 Premium Service Brands &middot; 8 engageable brand packages &middot; score-ordered</div>
+
+<a class="brand-card" href="docs/RooterMan_Readiness.docx">
+<div class="cn">RooterMan<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 78 &middot; T3 LEAD WEDGE &middot; 1,500 techs &middot; PSB anchor brand</div>
+<div class="cm">300+ locations representing the bulk of PSB's network. Plumbing = textbook ServiceBridge fit. Paul Flick already markets 'top technology' — ServiceBridge closes the delivery gap. Entrepreneur Franchise 500 #298, Top Brand for Multi-Unit Owners 2025.</div>
+</a>
+
+<a class="brand-card" href="docs/360_Painting_Readiness.docx">
+<div class="cn">360° Painting<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 70 &middot; T4 NORTHSTAR &middot; 544 techs &middot; &#9733; Founder origin brand</div>
+<div class="cm">Paul Flick founded 360° in 2006 — the brand he built first, paid for everything else PSB has done. 136+ locations, Franchise Times Top 400 #419 (Next 100 Rising Brands 2026). Personal emotional ties = strongest internal champion possible.</div>
+</a>
+
+<a class="brand-card" href="docs/ProLift_Garage_Doors_Readiness.docx">
+<div class="cn">ProLift Garage Doors<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 68 &middot; T4 NORTHSTAR &middot; 450 techs &middot; Mike Perez VP Q3 2025</div>
+<div class="cm">Mike Perez joined Q3 2025 as VP Franchise Dev for ProLift + Rubbish Works. Under 1 year in role — open posture. Mixed emergency repair + project install. Paired-brand wedge with Rubbish Works.</div>
+</a>
+
+<a class="brand-card" href="docs/Maid_Right_Readiness.docx">
+<div class="cn">Maid Right<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 65 &middot; T4 NORTHSTAR &middot; 450 techs &middot; HOODZ-pattern fit</div>
+<div class="cm">Cleaning vertical = same as TCA at Authority + Molly Maid at Neighborly. HOODZ pattern (94% organic ServiceBridge adoption in cleaning) applies. Recurring weekly/bi-weekly routes.</div>
+</a>
+
+<a class="brand-card" href="docs/Window_Gang_Readiness.docx">
+<div class="cn">Window Gang<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 62 &middot; T5 NORTHSTAR &middot; 600 techs &middot; bundled exterior services</div>
+<div class="cm">Window cleaning + pressure washing + gutter cleaning. Larger by location count than Pink's at ResiBrands. Brand stacking 2026 PSB strategy = multi-brand operators need unified FSM platform.</div>
+</a>
+
+<a class="brand-card" href="docs/Rubbish_Works_Readiness.docx">
+<div class="cn">Rubbish Works Junk Removal<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 60 &middot; T5 NORTHSTAR &middot; 450 techs &middot; Mike Perez paired</div>
+<div class="cm">Junk removal = same vertical as The Junkluggers at Authority. Mike Perez covers paired with ProLift. ServiceBridge ETA-text strength fits on-demand workflow.</div>
+</a>
+
+<a class="brand-card" href="docs/House_Doctors_Readiness.docx">
+<div class="cn">House Doctors<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 60 &middot; T5 NORTHSTAR &middot; 450 techs &middot; &#9888; online scheduling in place</div>
+<div class="cm">ONLY PSB brand with confirmed online scheduling at brand level. Tech-receptive franchisee profile but coexistence required. Multi-trade dispatch density = ServiceBridge core fit.</div>
+</a>
+
+<a class="brand-card" href="docs/Grout_Medic_Readiness.docx">
+<div class="cn">The Grout Medic<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 56 &middot; T5 NORTHSTAR &middot; 300 techs &middot; complementary brand</div>
+<div class="cm">Niche tile/grout work, lowest tech-density in PSB cohort. Recommended position: complementary brand in broader PSB portfolio play, not lead.</div>
+</a>
+
+<div class="subsection-header">P1 #7 HomeFront Brands &middot; 5 engageable brand packages &middot; score-ordered &middot; MONITOR-MODE</div>
+
+<a class="brand-card" href="docs/Window_Hero_Readiness.docx">
+<div class="cn">Window Hero<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 60 &middot; T4 LEAD WEDGE &middot; 600 techs &middot; &#9733; HomeFront origin brand</div>
+<div class="cm">Tyler Kirk (Founder/President) personally chose Jeff Dudan as operator-partner 2022. Direct relationship. Largest HomeFront brand. Bundled exterior services raise AOV. Caution: Dec 2025 franchisee unrest signals at HomeFront level.</div>
+</a>
+
+<a class="brand-card" href="docs/Top_Rail_Fence_Readiness.docx">
+<div class="cn">Top Rail Fence<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 50 &middot; T5 NORTHSTAR &middot; 600 techs &middot; project workflow</div>
+<div class="cm">Same vertical as Superior Fence at Empower (T4). 2024 award winners (Sean Raftery Denver, Bob Stewart Richmond). Project workflow fit. Score reduced by HomeFront platform fragility, not brand fundamentals.</div>
+</a>
+
+<a class="brand-card" href="docs/Temporary_Wall_Systems_Readiness.docx">
+<div class="cn">Temporary Wall Systems<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 48 &middot; T5 CAUTION &middot; 450 techs &middot; 100% B2B commercial</div>
+<div class="cm">Modular rentable containment walls for occupied commercial renovations. Largest national provider in category. CAUTION: B2B sales motion ≠ rest of HomeFront. Recommended position: parallel separate engagement track.</div>
+</a>
+
+<a class="brand-card" href="docs/The_Designery_Readiness.docx">
+<div class="cn">The Designery<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 45 &middot; T5 NORTHSTAR &middot; 300 techs &middot; design + install</div>
+<div class="cm">Kitchen, bath, closet design + install. Tech-forward design process per HomeFront materials = receptive franchisee profile. Lowest tech-density HomeFront brand. Complementary only.</div>
+</a>
+
+<a class="brand-card" href="docs/Roof_Scientist_Readiness.docx">
+<div class="cn">Roof Scientist<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 45 &middot; T5 NORTHSTAR &middot; 600 techs &middot; newest HomeFront brand</div>
+<div class="cm">Acquired early 2025 (rebrand of Innovative Roof Solutions). Under 18 months as Roof Scientist = newest cohort still selecting tools. Same vertical as Action Exteriors (ResiBrands) + Bumble Roofing (Empower). Storm-season demand.</div>
+</a>
+
+<div class="subsection-header" style="background:#f7faff;color:#0B3D6B;border-left:4px solid #0B3D6B">&#11088; P2 #1 BELFOR Franchise Group &middot; 5 NorthStar reference packages &middot; score-ordered</div>
+
+<a class="brand-card" href="docs/Z_Plumberz_Readiness.docx">
+<div class="cn">Z Plumberz<span class="northstar">&#11088; NORTHSTAR</span></div>
+<div class="cs">DOCX &middot; Score 113 &middot; T1 &middot; #1 of 78 &middot; convergence story</div>
+<div class="cm">Highest-scoring brand corp in entire 78-brand Track 2 set. Plumbing greenfield within BFG portfolio gravity. NorthStar reference pattern for greenfield engagement at Track 1 P1 brands.</div>
+</a>
+
+<a class="brand-card" href="docs/1800_Water_Damage_Readiness.docx">
+<div class="cn">1-800 Water Damage<span class="northstar">&#11088; NORTHSTAR</span></div>
+<div class="cs">DOCX &middot; Score 106 &middot; T1 &middot; restoration sweet spot &middot; 800 techs</div>
+<div class="cm">Restoration franchise sweet spot. Insurance carrier billing complexity is the franchisee economic story. Strongest natural SB vertical fit.</div>
+</a>
+
+<a class="brand-card" href="docs/Blue_Kangaroo_Packoutz_Readiness.docx">
+<div class="cn">Blue Kangaroo Packoutz<span class="northstar">&#11088; NORTHSTAR</span></div>
+<div class="cs">DOCX &middot; Score 106 &middot; T1 &middot; contents-restoration niche</div>
+<div class="cm">Specialized contents pack-out vertical. Documentation chain workflows align tightly with SB job-site capture. High-fit, high-velocity engagement target.</div>
+</a>
+
+<a class="brand-card" href="docs/DUCTZ_Readiness.docx">
+<div class="cn">DUCTZ<span class="northstar">&#11088; NORTHSTAR</span></div>
+<div class="cs">DOCX &middot; Score 103 &middot; T1 &middot; 94% SB de facto &middot; conversion play</div>
+<div class="cm">Conversion play, not greenfield. 94% organic franchisee SB adoption awaiting brand-corp formalization. HOODZ-pattern playbook directly applicable.</div>
+</a>
+
+<a class="brand-card" href="docs/1800_BOARDUP_Readiness.docx">
+<div class="cn">1-800 BOARDUP<span class="northstar">&#11088; NORTHSTAR</span></div>
+<div class="cs">DOCX &middot; Score 96 &middot; T2 &middot; emergency dispatch profile &middot; 600 techs</div>
+<div class="cm">Most time-critical franchise model in BFG portfolio. 24/7 dispatch, fast mobilization, on-site documentation. SB workflow tight match.</div>
+</a>
+
+<div class="subsection-header" style="background:#f7faff;color:#0B3D6B;border-left:4px solid #0B3D6B">&#11088; P2 #2 Evive Brands &middot; 4 NorthStar reference packages &middot; score-ordered &middot; GROWING ANCHOR</div>
+
+<a class="brand-card" href="docs/Brothers_Gutters_Readiness.docx">
+<div class="cn">The Brothers That Just Do Gutters<span class="northstar">&#11088; NORTHSTAR</span><span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 110 &middot; T1 &middot; 600 techs &middot; 43% SB ADOPTED &middot; CEO ORIGIN BRAND</div>
+<div class="cm">★ Warmest path in Track 2. Ryan Parsons co-founded Brothers Gutters 1999, sold to Evive Dec 2023, NOW CEO of full Evive portfolio. Known-friendly relationship. 43% ServiceBridge-adopted under new contract — within-brand whitespace expansion play, not displacement.</div>
+</a>
+
+<a class="brand-card" href="docs/Maid_Brigade_Readiness.docx">
+<div class="cn">Maid Brigade<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 95 &middot; T2 &middot; 840 techs &middot; HOODZ-PATTERN</div>
+<div class="cm">Acquired June 2025 — under 1 year in Evive. 280+ locs across US + Canada. PUREcleaning® non-toxic system. Raychel Leong-Sullins leadership retained. Cleaning vertical = HOODZ-pattern textbook fit. Hasn't standardized FSM yet.</div>
+</a>
+
+<a class="brand-card" href="docs/Pacific_Lawn_Sprinklers_Readiness.docx">
+<div class="cn">Pacific Lawn Sprinklers<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 88 &middot; T3 &middot; 240 techs &middot; NEWEST EVIVE ACQUISITION (Nov 2025)</div>
+<div class="cm">Founded 1980 by Dellafiora brothers. Mary Mahoney CEO + John Dellafiora founder both retained. 80 service areas in 10 states. 57,000+ active customers. Conserva Irrigation analog at Empower (T5). Most open tooling posture.</div>
+</a>
+
+<a class="brand-card" href="docs/Shine_Readiness.docx">
+<div class="cn">Shine<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 88 &middot; T3 &middot; 225 techs &middot; ACQUIRED LATE NOV 2025</div>
+<div class="cm">Chris Fisher founded 1999 (originally Golden Eagle Window Cleaning). Retained as Brand President. Fisher + Parsons started franchising same time — pre-existing professional relationship. Window Hero analog. Q4 holiday lighting seasonal spike.</div>
+</a>
+
+<div class="subsection-header" style="background:#f7faff;color:#0B3D6B;border-left:4px solid #0B3D6B">&#11088; P2 #3 Threshold Brands &middot; 10 NorthStar reference packages &middot; score-ordered &middot; AT-RISK ANCHOR</div>
+
+<a class="brand-card" href="docs/USA_Insulation_Readiness.docx">
+<div class="cn">USA Insulation<span class="northstar">&#11088; NORTHSTAR</span><span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 105 &middot; T1 &middot; 300 techs &middot; 75% SB ADOPTED &middot; &#9888; AT-RISK / TRANSITIONING OFF</div>
+<div class="cm">Largest single ServiceBridge footprint in Threshold. Franchisor decision to transition off per Andrea April 2026. RETENTION posture, not expansion. Understand the why first (Andrea is source). Defending USA Insulation = preserving access to remaining 9 Threshold brands.</div>
+</a>
+
+<a class="brand-card" href="docs/Pestmaster_Readiness.docx">
+<div class="cn">Pestmaster Services<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 90 &middot; T2 &middot; 300 techs &middot; GPSI BUNDLE WEDGE</div>
+<div class="cm">Reno NV brand HQ. Government contract specialty (GSA, federal facilities, military). Mosquito Shield analog at Five Star. Fleet-heavy recurring routes — textbook GPSI + ServiceBridge bundle fit.</div>
+</a>
+
+<a class="brand-card" href="docs/MaidPro_Readiness.docx">
+<div class="cn">MaidPro<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 80 &middot; T3 &middot; 600 techs &middot; HOODZ-PATTERN &middot; BOSTON HQ</div>
+<div class="cm">Boston-founded, same city as Threshold corporate HQ. Direct DeMarino access. HOODZ-pattern cleaning vertical fit. Riverside cross-portfolio parallel with Maid Brigade at Evive — coordinated platform standardization narrative.</div>
+</a>
+
+<a class="brand-card" href="docs/Plumbing_Paramedics_Readiness.docx">
+<div class="cn">Plumbing Paramedics<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 78 &middot; T3 &middot; 300 techs &middot; 24/7 EMERGENCY DISPATCH</div>
+<div class="cm">RooterMan analog at PSB (T3 Lead Wedge at 78). Same vertical economics. Paramedics paired-brand play with Heating + Air Paramedics sister brand — two brands, one conversation.</div>
+</a>
+
+<a class="brand-card" href="docs/Heating_Air_Paramedics_Readiness.docx">
+<div class="cn">Heating + Air Paramedics<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 75 &middot; T3 &middot; 300 techs &middot; RARE ENGAGEABLE HVAC</div>
+<div class="cm">One of few HVAC brands engageable across Track 2 (most HVAC scale brands are ST-locked). Paramedics paired with Plumbing sister. ServiceBridge $24.95 vs ServiceTitan $245-500/month story lands clearly.</div>
+</a>
+
+<a class="brand-card" href="docs/Miracle_Method_Readiness.docx">
+<div class="cn">Miracle Method<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 65 &middot; T4 &middot; 300 techs &middot; ACQUIRED APRIL 2024</div>
+<div class="cm">Largest US bath/kitchen surface refinishing franchise. John Tubiolo Brand Leader. Ted DeMarino has positive personal opinion of brand — CEO sponsorship. Photo documentation native ServiceBridge strength.</div>
+</a>
+
+<a class="brand-card" href="docs/Sir_Grout_Readiness.docx">
+<div class="cn">Sir Grout<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 60 &middot; T4 &middot; 200 techs &middot; GROUT MEDIC ANALOG</div>
+<div class="cm">Tile cleaning, grout color sealing, recaulking. Stamford CT HQ. Same vertical as Grout Medic at PSB (T5 at 56). Threshold-stated commitment to brand future. Complementary brand only — don't lead.</div>
+</a>
+
+<a class="brand-card" href="docs/Mold_Medics_Readiness.docx">
+<div class="cn">Mold Medics<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 60 &middot; T4 &middot; 225 techs &middot; RESTORATION VERTICAL</div>
+<div class="cm">Tim Swackhammer founder retained at May 2023 acquisition. Restoration-adjacent vertical — HOODZ pattern applies. FRSTeam, 1-800-Packouts, DRYmedic, STOP cross-network restoration analogs. Insurance-paid revenue.</div>
+</a>
+
+<a class="brand-card" href="docs/Men_In_Kilts_Readiness.docx">
+<div class="cn">Men In Kilts<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 55 &middot; T5 &middot; 225 techs &middot; CANADIAN BRAND</div>
+<div class="cm">Vancouver BC HQ. Distinctive kilted-uniform brand identity = customer experience differentiation. Window cleaning + exterior services. Pink's + Window Hero analogs. Canadian operations adds scope.</div>
+</a>
+
+<a class="brand-card" href="docs/Granite_Garage_Floors_Readiness.docx">
+<div class="cn">Granite Garage Floors<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; Score 50 &middot; T5 &middot; 120 techs &middot; SMALLEST DEAL IN TRACK 2</div>
+<div class="cm">Specialty epoxy garage floor coatings. Garage Up analog at ResiBrands. Smallest scale brand in entire Track 2 set. Portfolio extension only — never lead. Comes along for the ride if Threshold platform standardization conversation lands.</div>
+</a>
+
+<!-- ============================================================ -->
+<!-- CORE STRATEGY & OPERATING SYSTEM                             -->
+<!-- ============================================================ -->
+
+<div class="section-header">Core Strategy &amp; Operating System</div>
+
+<a class="card" href="docs/SB_Advantage_Strategy.pdf">
+<div class="cn"><span class="icon">&#128202;</span>The ServiceBridge Advantage</div>
+<div class="cs">PDF &middot; 1.3 MB &middot; 16 pages &middot; cleaned Apr 7</div>
+<div class="cm">Strategic narrative for 5 audiences (Technician, Franchisee, Customer, Franchisor, PE/Exit).</div>
+</a>
+
+<a class="card" href="docs/Insight_Engine_Excel_v5.xlsx">
+<div class="cn"><span class="icon">&#128200;</span>Insight Engine Excel v5<span class="updated">UPDATED</span></div>
+<div class="cs">XLSX &middot; 72 KB &middot; v5 &middot; Apr 28</div>
+<div class="cm">15 tabs: ROI Calculator + 9 franchisor-specific tabs with PE-credible EBITDA model. New "Franchisor GPO + CB Map" tab with V2 scoring.</div>
+</a>
+
+<a class="card" href="docs/Weekly_Action_Plan_v2.pdf">
+<div class="cn"><span class="icon">&#128221;</span>Weekly Action Plan v3<span class="updated">UPDATED</span></div>
+<div class="cs">PDF &middot; 28 KB &middot; v3 &middot; Apr 28</div>
+<div class="cm">13-week execution plan aligned to SOW: Develop, Engage, Close. Page 9 added with 9 pre-filled topics for 4/29 team meeting.</div>
+</a>
+
+<a class="card" href="docs/ServiceBridge_Master_CRM_15_6.xlsx">
+<div class="cn"><span class="icon">&#127760;</span>Master CRM v15.6<span class="updated">UPDATED</span></div>
+<div class="cs">XLSX &middot; 544 KB &middot; v15.6 &middot; validated Apr 29</div>
+<div class="cm">Source of truth for the engagement. V2 realignment across all tabs: Track 1 reordered (Neighborly #1, Authority #2, Empower #3, etc.) + P2 set added (BELFOR, Evive new, Threshold), Track 2 audited (USA Insulation reclassified, BELFOR Property Restoration excluded), Scoring Model rebuilt with V2 dimensions, Engagement Ideas + Event Intelligence relabeled. New Changelog v15.6 tab documents 112 entries.</div>
+</a>
+
+<a class="card" href="docs/Insight_Engine_Definition_Matrix.pdf">
+<div class="cn"><span class="icon">&#128269;</span>Insight Engine Definition Matrix</div>
+<div class="cs">PDF &middot; 9 pages</div>
+<div class="cm">Companion reference defining every input, assumption, and output with source citations.</div>
+</a>
+
+<a class="card" href="docs/Franchisor_Penetration_Dashboard_v5.docx">
+<div class="cn"><span class="icon">&#128203;</span>Franchisor Penetration Dashboard v5<span class="updated">UPDATED</span></div>
+<div class="cs">DOCX &middot; 26 KB &middot; v5 &middot; Apr 22</div>
+<div class="cm">Reflects Apr 21 operational reset. Priority swap P1/P2. USA Insulation at-risk. Brothers Gutters new contract.</div>
+</a>
+
+<a class="card" href="docs/Sources_and_Research_Provenance.docx">
+<div class="cn"><span class="icon">&#128218;</span>Sources &amp; Research Provenance<span class="updated">UPDATED</span></div>
+<div class="cs">DOCX &middot; 20 KB &middot; Apr 22</div>
+<div class="cm">Full audit trail for Track 1 research. Every claim traceable to source.</div>
+</a>
+
+<a class="card" href="docs/PitchBook_Data_Request_All_Franchisors.xlsx">
+<div class="cn"><span class="icon">&#128202;</span>PitchBook Data Request</div>
+<div class="cs">XLSX &middot; 47 KB &middot; Apr 22</div>
+<div class="cm">11-tab structured data request for Accel-KKR PitchBook access. 37 data points per franchisor, P1/P2/P3 priority structure.</div>
+</a>
+
+<a class="card" href="docs/Action_Tracker_Apr29_Meeting.docx">
+<div class="cn"><span class="icon">&#9989;</span>Action Tracker &mdash; April 29 Meeting<span class="new">NEW</span></div>
+<div class="cs">DOCX &middot; 17 KB &middot; Apr 28</div>
+<div class="cm">13 actions tracked, 6 done since Apr 21. 4 Andrea commitments. Status as of Apr 28 + 4/29 agenda.</div>
+</a>
+
+<a class="card" href="docs/Action_Tracker_Apr21_Meeting.docx">
+<div class="cn"><span class="icon">&#9989;</span>Action Tracker &mdash; April 21 Meeting</div>
+<div class="cs">DOCX &middot; 16 KB &middot; Apr 22 &middot; Historical</div>
+<div class="cm">Frozen snapshot of Apr 21 meeting commitments. 9 actions tracked. 4 Andrea commitments.</div>
+</a>
+
+<a class="card" href="docs/Blantons_ServiceTitan_Customer_Profile.docx">
+<div class="cn"><span class="icon">&#127919;</span>Blanton's ServiceTitan Customer Profile</div>
+<div class="cs">DOCX &middot; 20 KB &middot; Apr 22 &middot; 3 pages</div>
+<div class="cm">Competitive intelligence on Blanton's Air. ~$15M revenue, 100 vehicles, 4 trades, Nexstar member. ServiceTitan bill sizing ($222K-$459K/yr overpayment) and Jack's feedback on 7 operational capabilities.</div>
+</a>
+
+</div>
+
+<footer>
+Velocity GTM Co &middot; Michael M. Flynt Jr. &middot; mflyntjr@gmail.com &middot; 919.434.6720
+</footer>
+</div>
+</div>
+
+<script>
+function checkPw(){
+  var v=document.getElementById('pw').value;
+  if(v==='Service12Bridge$'){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('content').style.display='block';
+  } else {
+    document.getElementById('err').textContent='Incorrect passcode';
+  }
+}
+document.getElementById('pw').addEventListener('keypress',function(e){
+  if(e.key==='Enter') checkPw();
+});
+</script>
+</body>
+</html>
