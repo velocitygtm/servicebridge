@@ -16,9 +16,22 @@ header .sub{font-size:12px;color:rgba(255,255,255,0.6)}
 .gate button{padding:10px 20px;background:#185FA5;color:#fff;border:0;border-radius:6px;font-size:14px;cursor:pointer}
 .gate .err{color:#b91c1c;margin-top:12px;font-size:12px}
 .list{padding:8px}
-.section-header{padding:14px 20px 10px 20px;font-size:11px;font-weight:700;color:#185FA5;text-transform:uppercase;letter-spacing:0.8px;background:#fafbfc;border-top:1px solid #eee;border-bottom:1px solid #eee;margin-top:8px}
-.section-header:first-child{margin-top:0;border-top:0}
-.subsection-header{padding:10px 20px 8px 20px;font-size:10px;font-weight:600;color:#1A2B3C;text-transform:uppercase;letter-spacing:0.6px;background:#fff;border-bottom:1px dotted #e0e0e0;margin-top:4px}
+.section-header{padding:18px 22px 14px 22px;font-size:15px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px;background:#1A2B3C;border:0;margin-top:12px}
+.section-header:first-child{margin-top:0}
+
+/* Collapsible subsection — uses native <details><summary> */
+details.subsection{margin:0;border-bottom:1px solid #e8e8e8}
+details.subsection > summary{list-style:none;cursor:pointer;padding:14px 22px 14px 44px;font-size:13px;font-weight:700;color:#1A2B3C;text-transform:uppercase;letter-spacing:0.6px;background:#eef2f7;border-bottom:1px solid #d8dee5;border-top:2px solid #185FA5;position:relative;user-select:none;transition:background 0.15s}
+details.subsection > summary:hover{background:#e3eaf2}
+details.subsection > summary::-webkit-details-marker{display:none}
+details.subsection > summary::before{content:'\25B6';position:absolute;left:22px;top:50%;transform:translateY(-50%);font-size:10px;color:#185FA5;transition:transform 0.2s}
+details.subsection[open] > summary::before{transform:translateY(-50%) rotate(90deg)}
+details.subsection.northstar-set > summary{background:#f7faff;color:#0B3D6B;border-top:2px solid #0B3D6B;border-left:4px solid #0B3D6B}
+details.subsection.northstar-set > summary:hover{background:#eaf1fb}
+details.subsection.northstar-set > summary::before{color:#0B3D6B}
+
+/* Legacy class kept for any non-collapsible uses */
+.subsection-header{padding:14px 22px 12px 22px;font-size:13px;font-weight:700;color:#1A2B3C;text-transform:uppercase;letter-spacing:0.6px;background:#eef2f7;border-bottom:1px solid #d8dee5;border-top:2px solid #185FA5;margin-top:0}
 .matrix-card{display:block;padding:18px 20px;border-bottom:1px solid #eee;text-decoration:none;color:inherit;background:linear-gradient(to right,#f7faff,#fff);border-left:4px solid #185FA5}
 .matrix-card:hover{background:#eef4fb}
 .matrix-card .cn{font-weight:700;font-size:16px;margin-bottom:4px;color:#1A2B3C}
@@ -72,7 +85,8 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">9 priority targets ranked by V2 score with engageable techs (excluding confirmed competitive FSM mandates). Greenfield-first strategic posture. WHY RANKED narrative per franchisor. P1 totals: 11,471 locs &middot; 32,884 engageable of 44,961 techs (73%) &middot; $987K Y1@10%. Empower (100% engageable) is the largest single Y1@10% target.</div>
 </a>
 
-<div class="subsection-header">Franchisor Readiness Packages &middot; ordered by V2 priority</div>
+<details class="subsection" open>
+<summary>Franchisor Readiness Packages &middot; ordered by V2 priority</summary>
 
 <a class="card" href="docs/Neighborly_Readiness_Execution.docx">
 <div class="cn"><span class="icon">&#127919;</span>Neighborly &mdash; Readiness &amp; Execution<span class="updated">UPDATED</span></div>
@@ -116,7 +130,10 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">5 brands. Dudan Group family office. Q3/Q4 2026 reassessment posture. GPO: Yes &mdash; Vendor Advantage Program.</div>
 </a>
 
-<div class="subsection-header" style="background:#f7faff;color:#0B3D6B;border-left:4px solid #0B3D6B">P2 NorthStar Reference Set &middot; existing footprint &middot; conversion strategy, not active greenfield acquisition</div>
+</details>
+
+<details class="subsection northstar-set" open>
+<summary>P2 NorthStar Reference Set &middot; existing footprint &middot; conversion strategy, not active greenfield acquisition</summary>
 
 <a class="card" href="docs/BELFOR_Readiness_Execution.docx">
 <div class="cn"><span class="icon">&#11088;</span>BELFOR Franchise Group &mdash; Readiness &amp; Execution<span class="northstar">NORTHSTAR</span></div>
@@ -136,6 +153,8 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">10+ brands, ~1,000 territories. Riverside-owned (same parent as Evive). USA Insulation 75% SB but transitioning off. Ted DeMarino CEO + Billy Newby CFO &mdash; full leadership reset. Dual-track: defend USA Insulation, reset relationship for remaining brands.</div>
 </a>
 
+</details>
+
 <!-- ============================================================ -->
 <!-- TRACK 2 MATRIX + BRAND READINESS PACKAGES                    -->
 <!-- ============================================================ -->
@@ -148,7 +167,8 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">78 brand corps across 10 parent franchisors organized by Track 1 priority. WHY RANKED column carries critical flags + verified engagement signals where captured. 14,019 locs &middot; 55,255 total / 43,178 engageable techs (78%). NorthStar markers on BELFOR T1/T2 brands flag P2 reference patterns vs active engagement targets.</div>
 </a>
 
-<div class="subsection-header">P1 #1 Neighborly &middot; 10 engageable brand packages &middot; score-ordered</div>
+<details class="subsection">
+<summary>P1 #1 Neighborly &middot; 10 engageable brand packages &middot; score-ordered</summary>
 
 <a class="brand-card" href="docs/Mr_Electric_nonST_Readiness.docx">
 <div class="cn">Mr. Electric (non-ST)<span class="new">NEW</span></div>
@@ -210,7 +230,10 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">Placeholder for ~7+ portfolio sub-brands not yet documented at brand-corp level. Per-brand validation required.</div>
 </a>
 
-<div class="subsection-header">P1 #2 Authority Brands &middot; 12 brand packages (9 engageable + 3 ST-locked) &middot; score-ordered</div>
+</details>
+
+<details class="subsection">
+<summary>P1 #2 Authority Brands &middot; 12 brand packages (9 engageable + 3 ST-locked) &middot; score-ordered</summary>
 
 <a class="brand-card" href="docs/DRYmedic_Restoration_Readiness.docx">
 <div class="cn">DRYmedic Restoration Services<span class="new">NEW</span></div>
@@ -284,7 +307,10 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">ServiceTitan partnership Sep 2024. Engagement not recommended. Watch room only.</div>
 </a>
 
-<div class="subsection-header">P1 #3 Empower Brands &middot; 10 engageable brand packages &middot; score-ordered</div>
+</details>
+
+<details class="subsection">
+<summary>P1 #3 Empower Brands &middot; 10 engageable brand packages &middot; score-ordered</summary>
 
 <a class="brand-card" href="docs/FRSTeam_Readiness.docx">
 <div class="cn">FRSTeam<span class="new">NEW</span></div>
@@ -346,7 +372,10 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">Scott Zide's origin brand — was OLP franchisee in St. Louis with wife Erin before going corporate. CEO emotional champion built in. Rich Young (Brand Pres). Q4 holiday lighting seasonal spike.</div>
 </a>
 
-<div class="subsection-header">P1 #4 ResiBrands &middot; 5 engageable brand packages &middot; score-ordered</div>
+</details>
+
+<details class="subsection">
+<summary>P1 #4 ResiBrands &middot; 5 engageable brand packages &middot; score-ordered</summary>
 
 <a class="brand-card" href="docs/That_1_Painter_Readiness.docx">
 <div class="cn">That 1 Painter<span class="new">NEW</span></div>
@@ -378,7 +407,10 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">Co-founded by Steven Montgomery + Allan Alarcon 2021 — the brand that launched ResiBrands. Pure greenfield (minimal SaaS competition in garage services). Highest founder engagement leverage.</div>
 </a>
 
-<div class="subsection-header">P1 #5 Five Star Franchising &middot; 5 engageable brand packages &middot; score-ordered</div>
+</details>
+
+<details class="subsection">
+<summary>P1 #5 Five Star Franchising &middot; 5 engageable brand packages &middot; score-ordered</summary>
 
 <a class="brand-card" href="docs/Mosquito_Shield_Readiness.docx">
 <div class="cn">Mosquito Shield<span class="new">NEW</span></div>
@@ -410,7 +442,10 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">Custom blinds/draperies/shutters/smart home. 99% positive customer reviews. Top Low-Cost Franchise per Entrepreneur 2026. Recommended position: complementary brand in broader Five Star portfolio play, not lead brand.</div>
 </a>
 
-<div class="subsection-header">P1 #6 Premium Service Brands &middot; 8 engageable brand packages &middot; score-ordered</div>
+</details>
+
+<details class="subsection">
+<summary>P1 #6 Premium Service Brands &middot; 8 engageable brand packages &middot; score-ordered</summary>
 
 <a class="brand-card" href="docs/RooterMan_Readiness.docx">
 <div class="cn">RooterMan<span class="new">NEW</span></div>
@@ -460,7 +495,10 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">Niche tile/grout work, lowest tech-density in PSB cohort. Recommended position: complementary brand in broader PSB portfolio play, not lead.</div>
 </a>
 
-<div class="subsection-header">P1 #7 HomeFront Brands &middot; 5 engageable brand packages &middot; score-ordered &middot; MONITOR-MODE</div>
+</details>
+
+<details class="subsection">
+<summary>P1 #7 HomeFront Brands &middot; 5 engageable brand packages &middot; score-ordered &middot; MONITOR-MODE</summary>
 
 <a class="brand-card" href="docs/Window_Hero_Readiness.docx">
 <div class="cn">Window Hero<span class="new">NEW</span></div>
@@ -492,7 +530,10 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">Acquired early 2025 (rebrand of Innovative Roof Solutions). Under 18 months as Roof Scientist = newest cohort still selecting tools. Same vertical as Action Exteriors (ResiBrands) + Bumble Roofing (Empower). Storm-season demand.</div>
 </a>
 
-<div class="subsection-header" style="background:#f7faff;color:#0B3D6B;border-left:4px solid #0B3D6B">&#11088; P2 #1 BELFOR Franchise Group &middot; 5 NorthStar reference packages &middot; score-ordered</div>
+</details>
+
+<details class="subsection northstar-set">
+<summary>&#11088; P2 #1 BELFOR Franchise Group &middot; 5 NorthStar reference packages &middot; score-ordered</summary>
 
 <a class="brand-card" href="docs/Z_Plumberz_Readiness.docx">
 <div class="cn">Z Plumberz<span class="northstar">&#11088; NORTHSTAR</span></div>
@@ -524,7 +565,10 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">Most time-critical franchise model in BFG portfolio. 24/7 dispatch, fast mobilization, on-site documentation. SB workflow tight match.</div>
 </a>
 
-<div class="subsection-header" style="background:#f7faff;color:#0B3D6B;border-left:4px solid #0B3D6B">&#11088; P2 #2 Evive Brands &middot; 4 NorthStar reference packages &middot; score-ordered &middot; GROWING ANCHOR</div>
+</details>
+
+<details class="subsection northstar-set">
+<summary>&#11088; P2 #2 Evive Brands &middot; 4 NorthStar reference packages &middot; score-ordered &middot; GROWING ANCHOR</summary>
 
 <a class="brand-card" href="docs/Brothers_Gutters_Readiness.docx">
 <div class="cn">The Brothers That Just Do Gutters<span class="northstar">&#11088; NORTHSTAR</span><span class="new">NEW</span></div>
@@ -550,7 +594,10 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cm">Chris Fisher founded 1999 (originally Golden Eagle Window Cleaning). Retained as Brand President. Fisher + Parsons started franchising same time — pre-existing professional relationship. Window Hero analog. Q4 holiday lighting seasonal spike.</div>
 </a>
 
-<div class="subsection-header" style="background:#f7faff;color:#0B3D6B;border-left:4px solid #0B3D6B">&#11088; P2 #3 Threshold Brands &middot; 10 NorthStar reference packages &middot; score-ordered &middot; AT-RISK ANCHOR</div>
+</details>
+
+<details class="subsection northstar-set">
+<summary>&#11088; P2 #3 Threshold Brands &middot; 10 NorthStar reference packages &middot; score-ordered &middot; AT-RISK ANCHOR</summary>
 
 <a class="brand-card" href="docs/USA_Insulation_Readiness.docx">
 <div class="cn">USA Insulation<span class="northstar">&#11088; NORTHSTAR</span><span class="new">NEW</span></div>
@@ -611,6 +658,8 @@ Control Book v1.7 &mdash; all 7 P1 franchisor + all 3 P2 NorthStar reference set
 <div class="cs">DOCX &middot; Score 50 &middot; T5 &middot; 120 techs &middot; SMALLEST DEAL IN TRACK 2</div>
 <div class="cm">Specialty epoxy garage floor coatings. Garage Up analog at ResiBrands. Smallest scale brand in entire Track 2 set. Portfolio extension only — never lead. Comes along for the ride if Threshold platform standardization conversation lands.</div>
 </a>
+
+</details>
 
 <!-- ============================================================ -->
 <!-- CORE STRATEGY & OPERATING SYSTEM                             -->
